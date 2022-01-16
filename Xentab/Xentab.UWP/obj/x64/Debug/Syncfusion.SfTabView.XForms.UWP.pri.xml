@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="Syncfusion.SfTabView.XForms.UWP" version="1.0" primary="true">
+		<Qualifiers/>
+		<ResourceMapSubtree name="Files">
+			<ResourceMapSubtree name="Syncfusion.SfTabView.XForms.UWP">
+				<NamedResource name="Syncfusion.SfTabView.XForms.UWP.xr.xml" uri="ms-resource://Syncfusion.SfTabView.XForms.UWP/Files/Syncfusion.SfTabView.XForms.UWP/Syncfusion.SfTabView.XForms.UWP.xr.xml">
+					<Candidate type="Path">
+						<Value>Syncfusion.SfTabView.XForms.UWP\Syncfusion.SfTabView.XForms.UWP.xr.xml</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="Generic.xaml" uri="ms-resource://Syncfusion.SfTabView.XForms.UWP/Files/Syncfusion.SfTabView.XForms.UWP/Themes/Generic.xaml">
+						<Candidate type="Path">
+							<Value>Syncfusion.SfTabView.XForms.UWP\Themes\Generic.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Generic.xbf" uri="ms-resource://Syncfusion.SfTabView.XForms.UWP/Files/Syncfusion.SfTabView.XForms.UWP/Themes/Generic.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

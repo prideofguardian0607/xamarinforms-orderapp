@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c2332b5d-78af-4574-a2e5-c31ef205e1a1": {
+      "ProjectGuid": "c2332b5d-78af-4574-a2e5-c31ef205e1a1",
+      "DisplayName": "Xentab",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "70f45bca-01e4-41be-b564-050b694a6e44": {
+      "ProjectGuid": "70f45bca-01e4-41be-b564-050b694a6e44",
+      "DisplayName": "Xentab.iOS",
+      "ColorIndex": 1
+    },
+    "cbcd369a-395a-49b4-a61b-e69d9ae2c323": {
+      "ProjectGuid": "cbcd369a-395a-49b4-a61b-e69d9ae2c323",
+      "DisplayName": "Xentab.UWP",
+      "ColorIndex": 2
+    },
+    "02153785-ab1c-4db3-8a05-46f28c94d9e1": {
+      "ProjectGuid": "02153785-ab1c-4db3-8a05-46f28c94d9e1",
+      "DisplayName": "Xentab.Android",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

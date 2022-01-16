@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Xentab.Views.SetPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviour="clr-namespace:Xentab.Behaviors"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:control="clr-namespace:Xentab.Controls"
+    xmlns:converter="clr-namespace:Xentab.Converters"
+    xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
+    xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+    xmlns:local="clr-namespace:Xentab.Views"
+    xmlns:template="clr-namespace:Xentab.Views.Templates"
+    xmlns:viewModel="clr-namespace:Xentab.ViewModels"
+    xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+    BackgroundColor="{DynamicResource Gray-200}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <converter:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converter:NameValidationConverter x:Key="FirstValidationErrorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!--  Binding context for login with social icon page  -->
+    <ContentPage.BindingContext>
+        <viewModel:LoginWithSocialIconViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid>
+            <magic:GradientView VerticalOptions="FillAndExpand">
+                <magic:GradientView.GradientSource>
+                    <magic:CssGradientSource>
+                        <x:String>
+                            <![CDATA[
+                                linear-gradient(44deg, rgba(243, 243, 243, 0.05) 0%, rgba(243, 243, 243, 0.05) 33.333%,rgba(79, 79, 79, 0.05) 33.333%, rgba(79, 79, 79, 0.05) 66.666%,rgba(9, 9, 9, 0.05) 66.666%, rgba(9, 9, 9, 0.05) 99.999%),linear-gradient(97deg, rgba(150, 150, 150, 0.05) 0%, rgba(150, 150, 150, 0.05) 33.333%,rgba(34, 34, 34, 0.05) 33.333%, rgba(34, 34, 34, 0.05) 66.666%,rgba(40, 40, 40, 0.05) 66.666%, rgba(40, 40, 40, 0.05) 99.999%),linear-gradient(29deg, rgba(56, 56, 56, 0.05) 0%, rgba(56, 56, 56, 0.05) 33.333%,rgba(226, 226, 226, 0.05) 33.333%, rgba(226, 226, 226, 0.05) 66.666%,rgba(221, 221, 221, 0.05) 66.666%, rgba(221, 221, 221, 0.05) 99.999%),linear-gradient(90deg, rgb(163, 238, 211),rgb(149, 75, 252))
+                            ]]>
+                        </x:String>
+                    </magic:CssGradientSource>
+                </magic:GradientView.GradientSource>
+            </magic:GradientView>
+            <ScrollView HorizontalOptions="Center">
+
+                <ScrollView.VerticalOptions>
+                    <OnIdiom
+                        x:TypeArguments="LayoutOptions"
+                        Default="CenterAndExpand"
+                        Phone="FillAndExpand" />
+                </ScrollView.VerticalOptions>
+
+                <StackLayout
+                    Margin="{core:OnPlatformOrientationThickness PhonePortrait='24,32',
+                                                                 PhoneLandscape='150,32',
+                                                                 TabletPortrait='200,50',
+                                                                 TabletLandscape='350,50',
+                                                                 Desktop='30'}"
+                    Spacing="0"
+                    VerticalOptions="FillAndExpand"
+                    WidthRequest="{OnPlatform Default='-1',
+                                              UWP='350'}">
+
+                    <Grid
+                        RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+                        RowSpacing="10"
+                        VerticalOptions="CenterAndExpand">
+
+                        <!--  Label to display the title of this page  -->
+                        <Label
+                            FontSize="20"
+                            Style="{StaticResource TitleLabelStyle}"
+                            Text="XENTAB"
+
+                            TextColor="{DynamicResource Gray-White}" />
+
+                        <!--  Label to display the description of this page  -->
+                        <Label
+                            Grid.Row="1"
+                            Margin="14,0,0,150"
+                            Style="{StaticResource DescriptionLabelStyle}"
+                            Text="Let's get to work"
+                            TextColor="{DynamicResource Gray-White}" />
+
+                        <!--  Base Url set  -->
+                        <StackLayout Grid.Row="2">
+                            <!--  Entry to get password from user  -->
+                            <border:SfBorder
+                                BackgroundColor="{DynamicResource Gray-White}"
+                                BorderColor="{Binding Source={x:Reference BaseUrlEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                                CornerRadius="25"
+                                Style="{StaticResource LoginFormBorderlessEntryBorderStyle}">
+                                <Grid ColumnDefinitions="*, Auto">
+
+                                    <control:BorderlessEntry
+                                        x:Name="BaseUrlEntry"
+                                        Margin="15,0"
+                                        HeightRequest="40"
+                                        Placeholder="Set staion id here"
+                                        PlaceholderColor="#606a7b"
+                                        Style="{StaticResource BorderlessEntryStyle}"
+                                        Text="{Binding Password.Value}"
+                                        TextColor="#333942">
+                                    </control:BorderlessEntry>
+
+                                </Grid>
+                            </border:SfBorder>
+                        </StackLayout>
+
+                        <buttons:SfButton
+                            Grid.Row="3"
+                            Margin="0,16"
+                            Command="{Binding LoginCommand}"
+                            CornerRadius="25"
+                            HorizontalOptions="Fill"
+                            Style="{StaticResource GradientButtonStyle}"
+                            Text="S E T" />
+                        <!--  Id set  -->
+                        <StackLayout Grid.Row="4">
+                            <!--  Entry to get password from user  -->
+                            <border:SfBorder
+                                BackgroundColor="{DynamicResource Gray-White}"
+                                BorderColor="{Binding Source={x:Reference IdEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                                CornerRadius="25"
+                                Style="{StaticResource LoginFormBorderlessEntryBorderStyle}">
+                                <Grid ColumnDefinitions="*, Auto">
+
+                                    <control:BorderlessEntry
+                                        x:Name="IdEntry"
+                                        Margin="15,0"
+                                        HeightRequest="40"
+                                        Placeholder="Set staion id here"
+                                        PlaceholderColor="#606a7b"
+                                        Style="{StaticResource BorderlessEntryStyle}"
+                                        Text="{Binding Password.Value}"
+                                        TextColor="#333942">
+                                    </control:BorderlessEntry>
+
+                                </Grid>
+                            </border:SfBorder>
+                        </StackLayout>
+
+                        <buttons:SfButton
+                            Grid.Row="5"
+                            Margin="0,16"
+                            Command="{Binding LoginCommand}"
+                            CornerRadius="25"
+                            HorizontalOptions="Fill"
+                            Style="{StaticResource GradientButtonStyle}"
+                            Text="S E T" />
+
+
+                    </Grid>
+
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="1"
+                        VerticalOptions="End">
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+            <!--  Close button  -->
+            <buttons:SfButton
+                Margin="30"
+                Clicked="ShowTable"
+                ImageWidth="30"
+                HorizontalOptions="End"
+                Style="{StaticResource IconButtonStyle}"
+                Text="+"
+                ImageSource="table.png"
+                ShowIcon="True"
+                TextColor="{DynamicResource Gray-White}"
+                VerticalOptions="Start" />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

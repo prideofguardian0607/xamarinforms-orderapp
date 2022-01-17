@@ -36,7 +36,7 @@ application_config:
 	/* system_property_count */
 	.word	0
 	/* number_of_assemblies_in_apk */
-	.word	128
+	.word	130
 	/* bundled_assembly_name_width */
 	.word	63
 	/* android_package_name */
@@ -79,7 +79,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
-	.asciz	"48f36859-0f3d-45c4-96df-141f83712b82"
+	.asciz	"290e7b09-820c-45c4-b300-106d86efb588"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object
@@ -392,6 +392,10 @@ app_system_properties:
 .L.env.buf.127:
 	.zero	63
 .L.env.buf.128:
+	.zero	63
+.L.env.buf.129:
+	.zero	63
+.L.env.buf.130:
 	.zero	63
 	/* Bundled assemblies data */
 	.section	.data.bundled_assemblies,"aw",@progbits
@@ -2319,4 +2323,34 @@ bundled_assemblies:
 	.zero	4
 	.xword	.L.env.buf.128
 
-	.size	bundled_assemblies, 5120
+	/* apk_fd */
+	.word	-1
+	/* data_offset */
+	.word	0
+	/* data_size */
+	.word	0
+	/* data */
+	.zero	4
+	.xword	0
+	/* name_length */
+	.word	0
+	/* name */
+	.zero	4
+	.xword	.L.env.buf.129
+
+	/* apk_fd */
+	.word	-1
+	/* data_offset */
+	.word	0
+	/* data_size */
+	.word	0
+	/* data */
+	.zero	4
+	.xword	0
+	/* name_length */
+	.word	0
+	/* name */
+	.zero	4
+	.xword	.L.env.buf.130
+
+	.size	bundled_assemblies, 5200

@@ -18,6 +18,8 @@ public class MonoPackageManager_Resources {
 		"Syncfusion.DataSource.Portable.dll",
 		"Syncfusion.GridCommon.Portable.dll",
 		"Syncfusion.Licensing.dll",
+		"Syncfusion.SfBadgeView.XForms.Android.dll",
+		"Syncfusion.SfBadgeView.XForms.dll",
 		"Syncfusion.SfComboBox.XForms.Android.dll",
 		"Syncfusion.SfComboBox.XForms.dll",
 		"Syncfusion.SfListView.XForms.Android.dll",

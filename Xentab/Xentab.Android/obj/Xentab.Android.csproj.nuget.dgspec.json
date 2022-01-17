@@ -146,6 +146,10 @@
               "target": "Package",
               "version": "[19.4.0.42, )"
             },
+            "Syncfusion.Xamarin.SfBadgeView": {
+              "target": "Package",
+              "version": "[19.4.0.42, )"
+            },
             "Syncfusion.Xamarin.SfComboBox": {
               "target": "Package",
               "version": "[19.4.0.42, )"

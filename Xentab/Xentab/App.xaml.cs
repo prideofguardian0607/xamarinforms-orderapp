@@ -18,8 +18,9 @@ namespace Xentab
 
             MainPage = new NavigationPage(new SetPage())
             {
-                BarBackgroundColor = Color.BlueViolet,
+                BarBackgroundColor = Color.White,
                 BarTextColor = Color.FromRgb(0x19, 0xc1, 0x79)
+                
             };
              
             

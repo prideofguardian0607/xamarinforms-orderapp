@@ -15,6 +15,7 @@
           "Syncfusion.Xamarin.Buttons": "19.4.0.42",
           "Syncfusion.Xamarin.Cards": "19.4.0.42",
           "Syncfusion.Xamarin.Core": "19.4.0.42",
+          "Syncfusion.Xamarin.SfBadgeView": "19.4.0.42",
           "Syncfusion.Xamarin.SfComboBox": "19.4.0.42",
           "Syncfusion.Xamarin.SfListView": "19.4.0.42",
           "Syncfusion.Xamarin.SfRating": "19.4.0.42",
@@ -126,6 +127,18 @@
       "Syncfusion.Xamarin.GridCommon/19.4.0.42": {
         "runtime": {
           "lib/netstandard2.0/Syncfusion.GridCommon.Portable.dll": {
+            "assemblyVersion": "19.4451.0.42",
+            "fileVersion": "19.4451.0.42"
+          }
+        }
+      },
+      "Syncfusion.Xamarin.SfBadgeView/19.4.0.42": {
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "19.4.0.42",
+          "Xamarin.Forms": "5.0.0.2196"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.SfBadgeView.XForms.dll": {
             "assemblyVersion": "19.4451.0.42",
             "fileVersion": "19.4451.0.42"
           }
@@ -470,6 +483,13 @@
       "sha512": "sha512-HfEDRd/XBOTW3iIMgsLgsCxACtycR8i5JjVL6WWPRRfLH9iuitKUXEzTiHB0AxtC2cDXkwueL0C1Ofo4we6SeA==",
       "path": "syncfusion.xamarin.gridcommon/19.4.0.42",
       "hashPath": "syncfusion.xamarin.gridcommon.19.4.0.42.nupkg.sha512"
+    },
+    "Syncfusion.Xamarin.SfBadgeView/19.4.0.42": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dr5fwwi2t9jT95RYJR808Xr+RFbij0bEEc1IwwjfQYv5laKoJaB2FZRJ0FOZyxZyt/EzGZxzPrkxjpWZzn9+Gg==",
+      "path": "syncfusion.xamarin.sfbadgeview/19.4.0.42",
+      "hashPath": "syncfusion.xamarin.sfbadgeview.19.4.0.42.nupkg.sha512"
     },
     "Syncfusion.Xamarin.SfComboBox/19.4.0.42": {
       "type": "package",

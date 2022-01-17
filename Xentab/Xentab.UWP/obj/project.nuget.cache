@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hEkHezdQAHWS9D/zaGOTUwfjtwzQ6dbUTJpIkgHtRvdNmzgveuSNiovXwskEDwWdbYg3dUoNcWOSxUbe/a2Jbg==",
+  "dgSpecHash": "aNU8Vlot9dfU9Dkna7UETjAfZZbTjqoRYBuoXRQpgSUDoVn4/m4E88C5UTGQrBgmQyqJx3dZo7MJt2CBCSzUFA==",
   "success": true,
   "projectFilePath": "D:\\W_Dir\\hgg\\work in progress\\task\\task\\Xentab\\Xentab\\Xentab.UWP\\Xentab.UWP.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\GO.ON\\.nuget\\packages\\syncfusion.xamarin.core\\19.4.0.42\\syncfusion.xamarin.core.19.4.0.42.nupkg.sha512",
     "C:\\Users\\GO.ON\\.nuget\\packages\\syncfusion.xamarin.datasource\\19.4.0.42\\syncfusion.xamarin.datasource.19.4.0.42.nupkg.sha512",
     "C:\\Users\\GO.ON\\.nuget\\packages\\syncfusion.xamarin.gridcommon\\19.4.0.42\\syncfusion.xamarin.gridcommon.19.4.0.42.nupkg.sha512",
+    "C:\\Users\\GO.ON\\.nuget\\packages\\syncfusion.xamarin.sfbadgeview\\19.4.0.42\\syncfusion.xamarin.sfbadgeview.19.4.0.42.nupkg.sha512",
     "C:\\Users\\GO.ON\\.nuget\\packages\\syncfusion.xamarin.sfcombobox\\19.4.0.42\\syncfusion.xamarin.sfcombobox.19.4.0.42.nupkg.sha512",
     "C:\\Users\\GO.ON\\.nuget\\packages\\syncfusion.xamarin.sflistview\\19.4.0.42\\syncfusion.xamarin.sflistview.19.4.0.42.nupkg.sha512",
     "C:\\Users\\GO.ON\\.nuget\\packages\\syncfusion.xamarin.sfrating\\19.4.0.42\\syncfusion.xamarin.sfrating.19.4.0.42.nupkg.sha512",

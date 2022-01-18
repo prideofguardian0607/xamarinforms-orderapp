@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xentab.Model;
 using Xentab.ViewModels;
 
 namespace Xentab
@@ -18,10 +19,10 @@ namespace Xentab
         public ICommand ModifyCommand { private set; get; }
         public MenuInfoPage(List<MenuInfo> menuInfo, string parentName)
         {
-            NavigationPage.SetIconColor(this, Color.DarkBlue);
             NavigationPage.SetTitleView(this, new Label()
             {
-                TextColor = Color.DarkBlue,
+                TextColor = Color.White,
+                FontSize = 20,
                 Text = parentName,
             });
             InitializeComponent();
@@ -30,11 +31,46 @@ namespace Xentab
         }
         private async void ListView_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
+
             MenuInfo menuInfo = e.ItemData as MenuInfo;
             if (menuInfo.HasSubItem == true)
-                Navigation.PushAsync(new SubMenuPage(menuInfo.SubItems, menuInfo.Name));
+                await Navigation.PushAsync(new SubMenuPage(menuInfo.SubItems, menuInfo.Name));
             else
-                Navigation.PushAsync(new OrderPage(menuInfo));
+            {
+                OrderItem found = App.orderList.FirstOrDefault(o => o.Id == menuInfo.Id);
+                
+
+                if (menuInfo.ModifierLevels[0].Modifiers.Count == 0)
+                {
+                    if (found != null)
+                    {
+                        found.Num++;
+                    }
+                    else
+                    {
+                        App.orderList.Add(new OrderItem()
+                        {
+                            Id = menuInfo.Id,
+                            Name = menuInfo.Name,
+                            Num = 1,
+                            Price = menuInfo.Price,
+                        });
+                    }
+                }
+                else
+                {
+                    await Navigation.PushModalAsync(new ModifierPage(menuInfo), true);
+                    Console.WriteLine("akjdflkajkldfj");
+                }
+
+
+            }
+            //Navigation.PushAsync(new OrderPage(menuInfo));
+        }
+
+        public void OnOrderClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new OrderPage());
         }
     }
 

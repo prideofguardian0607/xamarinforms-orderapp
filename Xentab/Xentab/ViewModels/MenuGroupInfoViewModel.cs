@@ -8,6 +8,11 @@ using System.Text;
 
 namespace Xentab.ViewModels
 {
+    public class MenuGroup : MenuGroupInfo
+    {
+        public bool IsActive { get; set; }
+    }
+
     internal class MenuGroupInfoViewModel : INotifyPropertyChanged
     {
 		private ObservableCollection<MenuGroupInfo> menuGroupList;

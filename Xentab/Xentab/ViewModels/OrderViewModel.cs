@@ -23,7 +23,8 @@ namespace Xentab.ViewModels
 			}
 		}
 
-		public MenuInfo MenuInfo { get; set; }
+		public string TableName { get; set; }
+		public int Guest { get; set; }
 
 		public Command<OrderItem> cancelCommand { get; set; }
 		public OrderViewModel()

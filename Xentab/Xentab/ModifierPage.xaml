@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="Xentab.ModifierPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="modifyLayout" Margin="5">
+            <Label x:Name="warnLevel" Text="" IsVisible="false" HorizontalOptions="Center" TextColor="Red"></Label>
+            <syncfusion:SfListView x:Name="modifierList" 
+                                     ItemSize="50">
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <buttons:SfCheckBox StateChanged="ModifierChanged" VerticalOptions="End" x:Name="checkBox" Text="{Binding name}"  CornerRadius="5.0"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+            <Button x:Name="modifyButton" Text="DONE" BackgroundColor="{x:StaticResource Blue}" TextColor="White" FontSize="Large" FontAttributes="Bold" IsEnabled="True" Clicked="ModifyDone" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

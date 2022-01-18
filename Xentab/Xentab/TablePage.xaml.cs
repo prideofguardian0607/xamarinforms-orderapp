@@ -25,7 +25,7 @@ namespace Xentab
         private const string TableUrl = "http://10.10.11.18:5000/api/tables";
         public TablePage()
         {
-            //NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             
         }
@@ -57,6 +57,7 @@ namespace Xentab
                 tabView.OverflowButtonSettings = overflowButtonSettings;
                 tabView.EnableSwiping = false;
                 tabView.DisplayMode = TabDisplayMode.ImageWithText;
+                tabView.Margin = new Thickness(0,20,0,0);
                 var tabItems = new TabItemCollection();
                 groups = JsonConvert.DeserializeObject<List<GroupInfo>>(body);
                 for (int i = 0; i < groups.Count; i++)
@@ -68,16 +69,17 @@ namespace Xentab
                             Title = groups.ElementAt(i).Title,
                             Content = listView,
                             TitleFontSize = 20,
-                            SelectionColor = Color.FromRgb(0x19, 0xc1, 0x79),
-                            
+                            SelectionColor = Color.FromRgb(0x4a, 0xca, 0xff),
+                            TitleFontAttributes = FontAttributes.Bold,
                         });
                     else
                         tabItems.Add(new SfTabItem()
                         {
                             Title = groups.ElementAt(i).Title,
                             TitleFontSize = 20,
+                            TitleFontAttributes = FontAttributes.Bold,
                             Content = listView,
-                            SelectionColor = Color.FromRgb(0x19, 0xc1, 0x79),
+                            SelectionColor = Color.FromRgb(0x4a, 0xca, 0xff),
                         });
                 }
                 tabView.OverflowMode = OverflowMode.DropDown;
@@ -100,10 +102,10 @@ namespace Xentab
             SfListView listView;
             TableViewModel tableViewModel = new TableViewModel();
             listView = new SfListView();
-            listView.LayoutManager = new GridLayout() { SpanCount = 1 };
+            listView.LayoutManager = new GridLayout() { SpanCount = 2 };
             listView.ItemSize = 60;
             listView.Margin = 20;
-            listView.ItemSpacing = 5;
+            listView.ItemSpacing = 3;
 
             /*------------beginning of get table datas from api---------*/
             try
@@ -128,16 +130,19 @@ namespace Xentab
             listView.ItemTemplate = new DataTemplate(() => {
                 SfCardView cardView = new SfCardView
                 {
-                    IndicatorThickness = 30,
+                    IndicatorThickness = 10,
                     HeightRequest = 300,
                     //IndicatorPosition = IndicatorPosition.Left,
-                    IndicatorColor = Color.FromRgb(0x19, 0xc1, 0x79),
-                    CornerRadius = new Thickness(30, 30, 30, 30),
+                    IndicatorColor = Color.FromRgb(0x4a, 0xca, 0xff),
+                    //CornerRadius = new Thickness(30, 30, 30, 30),
                 };
                 Label table = new Label()
                 {
                     HorizontalTextAlignment = TextAlignment.Center,
-                    VerticalTextAlignment = TextAlignment.Center
+                    VerticalTextAlignment = TextAlignment.Center,
+                    FontSize = 20,
+                    FontAttributes = FontAttributes.Bold,
+                    TextColor = Color.FromRgb(0x4a, 0xca, 0xff)
                 };
                 table.SetBinding(Label.TextProperty, "Name");
                 cardView.Content = table;
@@ -168,8 +173,10 @@ namespace Xentab
         {
             string result1 = await DisplayPromptAsync("Enter guest number", "", initialValue: "0", maxLength: 10, keyboard: Keyboard.Numeric);
             TableInfo selectedTable = e.ItemData as TableInfo;
+            App.TableName = selectedTable.Name;
+            App.Guest = Int32.Parse(result1);
             if (result1 != null)
-                _ = Navigation.PushAsync(new MenuGroupPage(selectedTable.Name, Int32.Parse(result1)));
+                _ = Navigation.PushAsync(new MenuPage());
 
         }
     }

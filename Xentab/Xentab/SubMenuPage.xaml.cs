@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xentab.Model;
 using Xentab.ViewModels;
 
 namespace Xentab
@@ -16,12 +17,13 @@ namespace Xentab
     {
         public SubMenuPage(List<SubItem> sub, string parentName)
         {
-            NavigationPage.SetIconColor(this, Color.DarkGreen);
+            /*NavigationPage.SetIconColor(this, Color.DarkGreen);
             NavigationPage.SetTitleView(this, new Label()
             {
                 TextColor = Color.DarkGreen,
                 Text = parentName,
-            });
+            });*/
+            //NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             listView.ItemsSource = new ObservableCollection<SubItem>(sub);
             listView.ItemTapped += ListView_ItemTapped;
@@ -29,21 +31,26 @@ namespace Xentab
         private async void ListView_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
             SubItem menuInfo = e.ItemData as SubItem;
-            _ = Navigation.PushAsync(new OrderPage(new MenuInfo()
+            OrderItem found = App.orderList.FirstOrDefault(o => o.Id == menuInfo.Id);
+            if (found != null)
             {
-                Id = menuInfo.Id,
-                Name = menuInfo.Name,
-                Description = menuInfo.Description,
-                Price = menuInfo.Price,
-                SuggestedQuantity = menuInfo.SuggestedQuantity,
-                HasSubItem = menuInfo.HasSubItem,
-                SubItems = new List<SubItem>(),
-                GroupId = menuInfo.GroupId,
-                ModifierLevels = menuInfo.ModifierLevels,
-                AllergyInfo = menuInfo.AllergyInfo,
-                ExcludeDiscount = menuInfo.ExcludeDiscount,
-
-            }));
+                found.Num++;
+            }
+            else
+            {
+                if(menuInfo.ModifierLevels[0].Modifiers.Count == 0)
+                    App.orderList.Add(new OrderItem()
+                    {
+                        Id = menuInfo.Id,
+                        Name = menuInfo.Name,
+                        Num = 1,
+                        Price = menuInfo.Price,
+                    });
+            }
+        }
+        public void OnOrderClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new OrderPage());
         }
 
     }

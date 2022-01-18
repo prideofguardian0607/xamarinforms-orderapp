@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="Xentab.MenuPageFlyout"
+             xmlns:local="clr-namespace:Xentab"
+             Title="Flyout">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BoolToString x:Key="boolTostring" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <syncfusion:SfListView x:Name="MenuItemsListView"
+              ItemsSource="{Binding MenuItems}"
+              ItemSize="60">
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Frame x:Name="frame" HasShadow="True" Padding="5" Margin="5" BackgroundColor="{x:StaticResource Blue}" BorderColor="Gray" OutlineColor="White">
+                        <StackLayout HorizontalOptions="Center" >
+                            <Label VerticalOptions="FillAndExpand" 
+                                VerticalTextAlignment="Center" 
+                                Text="{Binding Name}" 
+                                TextColor="White"
+                                FontSize="20"/> 
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
+    </StackLayout>
+</ContentPage>

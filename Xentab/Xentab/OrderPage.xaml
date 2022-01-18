@@ -8,53 +8,20 @@
              x:Class="Xentab.OrderPage">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <buttons:SfButton
-                HeightRequest="40"
-                WidthRequest="70"
-                VerticalOptions="Start"
-                HorizontalOptions="Center"
-                CornerRadius="15"
-                HasShadow="True"
-                BorderWidth="1"
-                FontSize="10"
-                BorderColor="Gray"
-                Clicked="Order"
-                BackgroundColor="#538EEC"
-                ImageAlignment="End"
-                Text="Ok"/>
-                <Label Text="{Binding MenuInfo.Price, StringFormat='${0:F2}'}" VerticalOptions="Center" FontSize="20" TextColor="BlueViolet" />
-                <buttons:SfButton
-                HeightRequest="40"
-                WidthRequest="70"
-                VerticalOptions="End"
-                HorizontalOptions="Center"
-                CornerRadius="15"
-                FontSize="10"
-                HasShadow="True"
-                BorderWidth="1"
-                Clicked="Cancel"
-                BorderColor="Gray"
-                BackgroundColor="#538EEC"
-                ImageAlignment="End"
-                Text="Cancel"/>
-            </StackLayout>
             <StackLayout Orientation="Vertical">
-                <StackLayout x:Name="modifyLayout">
-                    <Label x:Name="warnLevel" Text="" IsVisible="false" HorizontalOptions="Center" TextColor="Red"></Label>
-                    <syncfusion:SfListView x:Name="modifierList" 
-                                     ItemSize="50">
-                        <syncfusion:SfListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackLayout Orientation="Horizontal">
-                                    <buttons:SfCheckBox StateChanged="ModifierChanged" VerticalOptions="End" x:Name="checkBox" Text="{Binding name}"  CornerRadius="5.0"/>
-                                </StackLayout>
-                            </DataTemplate>
-                        </syncfusion:SfListView.ItemTemplate>
-                    </syncfusion:SfListView>
-                    <Button x:Name="modifyButton" Text="DONE" IsEnabled="True" Clicked="ModifyDone" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
-                </StackLayout>
-                <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" Margin="10">
+                    <Button WidthRequest="300" Text="" x:Name="totalButton" BackgroundColor="{x:StaticResource Blue}" CornerRadius="3" TextColor="White" FontSize="20"></Button>
+                    <Grid Padding="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding TableName, StringFormat='Table: {0}'}" HorizontalOptions="Start" FontSize="18" FontAttributes="Bold" Grid.Column="0"/>
+                        <Label Text="{Binding Guest, StringFormat='Guest(s): {0}'}" HorizontalOptions="End" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>   
+                    </Grid>
                     <syncfusion:SfListView x:Name="OrderList" ItemsSource="{Binding Order}"
                                      ItemSize="50">
                         <syncfusion:SfListView.ItemTemplate>
@@ -85,8 +52,8 @@
                             </DataTemplate>
                         </syncfusion:SfListView.ItemTemplate>
                     </syncfusion:SfListView>
-                    <Label Text="" HorizontalOptions="Center" x:Name="totalLabel" TextColor="BlueViolet" FontSize="25"/>
-                    <Button WidthRequest="300" Text="DONE" BackgroundColor="White" BorderColor="BlueViolet" TextColor="BlueViolet" BorderWidth="2"></Button>
+                    <Label Text="" HorizontalOptions="Center" x:Name="totalLabel" FontAttributes="Bold"  FontSize="20"/>
+                    
                 </StackLayout>
             </StackLayout>
         </StackLayout>

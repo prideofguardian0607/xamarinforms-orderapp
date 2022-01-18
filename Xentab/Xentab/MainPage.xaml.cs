@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xentab.ViewModels;
 
 namespace Xentab
 {
@@ -13,6 +14,7 @@ namespace Xentab
         public MainPage()
         {
             InitializeComponent();
+            
         }
     }
 }

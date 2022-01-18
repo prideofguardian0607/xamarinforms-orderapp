@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             x:Class="Xentab.MenuGroupPage">
+    <syncfusion:SfListView x:Name="listView" ItemSize="60" >
+        <syncfusion:SfListView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="2" Margin="2" >
+                    <cards:SfCardView IndicatorColor="OrangeRed" HeightRequest="300" IndicatorThickness="12" IndicatorPosition="Left" >
+                        <Label  Text="{Binding Name}" TextColor="OrangeRed" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    </cards:SfCardView>
+                </Grid>
+            </DataTemplate>
+        </syncfusion:SfListView.ItemTemplate>
+    </syncfusion:SfListView>
+</ContentPage>

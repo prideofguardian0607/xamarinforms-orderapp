@@ -100,7 +100,7 @@ namespace Xentab
             SfListView listView;
             TableViewModel tableViewModel = new TableViewModel();
             listView = new SfListView();
-            listView.LayoutManager = new GridLayout() { SpanCount = 2 };
+            listView.LayoutManager = new GridLayout() { SpanCount = 1 };
             listView.ItemSize = 60;
             listView.Margin = 20;
             listView.ItemSpacing = 5;
@@ -169,7 +169,7 @@ namespace Xentab
             string result1 = await DisplayPromptAsync("Enter guest number", "", initialValue: "0", maxLength: 10, keyboard: Keyboard.Numeric);
             TableInfo selectedTable = e.ItemData as TableInfo;
             if (result1 != null)
-                _ = Navigation.PushAsync(new OrderPage(selectedTable.Name, Int32.Parse(result1)));
+                _ = Navigation.PushAsync(new MenuGroupPage(selectedTable.Name, Int32.Parse(result1)));
 
         }
     }

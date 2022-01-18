@@ -34,7 +34,16 @@ namespace Xentab.ViewModels
 		public int GroupId { get; set; }
 	}
 
-
+    public class Modifier
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public double price { get; set; }
+        public bool isPizzaCrust { get; set; }
+        public bool isPizzaTopping { get; set; }
+        public bool isBarMixer { get; set; }
+        public bool isBarDrink { get; set; }
+    }
     public class ModifierLevel
     {
         [JsonProperty("level")]
@@ -44,7 +53,7 @@ namespace Xentab.ViewModels
         public int MaxAllowed { get; set; }
 
         [JsonProperty("modifiers")]
-        public List<object> Modifiers { get; set; }
+        public List<Modifier> Modifiers { get; set; }
     }
 
     public class SubItem
@@ -127,9 +136,9 @@ namespace Xentab.ViewModels
 		public event PropertyChangedEventHandler PropertyChanged;
 
 
-		private const string Url = "http://10.10.11.18:5000/api/tables";//localhost corresponds 10.0.2.2 in android emulator
+		private const string groupUrl = "http://10.10.11.18:5000/api/tables";//localhost corresponds 10.0.2.2 in android emulator
         private readonly HttpClient _client = new HttpClient();
-
+        
 
 		public ObservableCollection<TableInfo> TableList
 		{
@@ -138,7 +147,9 @@ namespace Xentab.ViewModels
 		}
 		public TableViewModel()
 		{
-			
-		}
+     
+        }
+
+
 	}
 }

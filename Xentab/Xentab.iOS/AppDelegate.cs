@@ -6,6 +6,7 @@ using Syncfusion.XForms.iOS.Graphics;
 using Syncfusion.XForms.iOS.Core;
 using Syncfusion.XForms.iOS.Border;
 using Syncfusion.XForms.iOS.Buttons;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,7 @@ namespace Xentab.iOS
             SfGradientViewRenderer.Init();
             SfBorderRenderer.Init();
             SfButtonRenderer.Init();
+            
             Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
             LoadApplication(new App());
 

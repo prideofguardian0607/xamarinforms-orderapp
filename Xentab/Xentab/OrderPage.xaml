@@ -1,8 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Name="orderPage"
              x:Class="Xentab.OrderPage">
     <ContentPage.Content>
-        
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <buttons:SfButton
+                HeightRequest="40"
+                WidthRequest="70"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                CornerRadius="15"
+                HasShadow="True"
+                BorderWidth="1"
+                FontSize="10"
+                BorderColor="Gray"
+                Clicked="Order"
+                BackgroundColor="#538EEC"
+                ImageAlignment="End"
+                Text="Ok"/>
+                <Label Text="{Binding MenuInfo.Price, StringFormat='${0:F2}'}" VerticalOptions="Center" FontSize="20" TextColor="BlueViolet" />
+                <buttons:SfButton
+                HeightRequest="40"
+                WidthRequest="70"
+                VerticalOptions="End"
+                HorizontalOptions="Center"
+                CornerRadius="15"
+                FontSize="10"
+                HasShadow="True"
+                BorderWidth="1"
+                Clicked="Cancel"
+                BorderColor="Gray"
+                BackgroundColor="#538EEC"
+                ImageAlignment="End"
+                Text="Cancel"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <StackLayout x:Name="modifyLayout">
+                    <Label x:Name="warnLevel" Text="" IsVisible="false" HorizontalOptions="Center" TextColor="Red"></Label>
+                    <syncfusion:SfListView x:Name="modifierList" 
+                                     ItemSize="50">
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <buttons:SfCheckBox StateChanged="ModifierChanged" VerticalOptions="End" x:Name="checkBox" Text="{Binding name}"  CornerRadius="5.0"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+                    </syncfusion:SfListView>
+                    <Button x:Name="modifyButton" Text="DONE" IsEnabled="True" Clicked="ModifyDone" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                    <syncfusion:SfListView x:Name="OrderList" ItemsSource="{Binding Order}"
+                                     ItemSize="50">
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="10"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Num}" FontSize="15" FontAttributes="Bold" Grid.Column="0"/>
+                                    <Label Text="{Binding Name}" FontAttributes="Bold,Italic" Grid.Column="1"/>
+                                    <Label Text="{Binding Price, StringFormat='${0:F2}'}" Grid.Column="2"/>
+                                    <Label Text="x" Grid.Column="3">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding Path=BindingContext.cancelCommand, Source={x:Reference orderPage}}"
+                                                CommandParameter="{Binding .}"
+                                                NumberOfTapsRequired="1"
+                                                />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Grid>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+                    </syncfusion:SfListView>
+                    <Label Text="" HorizontalOptions="Center" x:Name="totalLabel" TextColor="BlueViolet" FontSize="25"/>
+                    <Button WidthRequest="300" Text="DONE" BackgroundColor="White" BorderColor="BlueViolet" TextColor="BlueViolet" BorderWidth="2"></Button>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

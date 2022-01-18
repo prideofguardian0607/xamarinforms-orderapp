@@ -73,7 +73,6 @@
                             FontSize="20"
                             Style="{StaticResource TitleLabelStyle}"
                             Text="XENTAB"
-
                             TextColor="{DynamicResource Gray-White}" />
 
                         <!--  Label to display the description of this page  -->

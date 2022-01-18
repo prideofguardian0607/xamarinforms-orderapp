@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+             xmlns:badge ="clr-namespace:Syncfusion.XForms.BadgeView;assembly=Syncfusion.SfBadgeView.XForms"
+             xmlns:local="clr-namespace:Xentab"
+             x:Class="Xentab.MenuInfoPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StringToBool x:Key="stringTobool" />
+            <local:ListToBool x:Key="listTobool" />
+            <local:BoolToString x:Key="boolTostring" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Padding="10">
+        <syncfusion:SfListView x:Name="menuList" AutoFitMode="Height" >
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="2" Margin="2" >
+                        <cards:SfCardView IndicatorColor="DarkBlue" HeightRequest="300" IndicatorThickness="12" IndicatorPosition="Left" >
+                            <StackLayout Orientation="Vertical">
+                                <badge:SfBadgeView BadgeText="{Binding Price, StringFormat='${0:F2}'}" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding HasSubItem, Converter={StaticResource stringTobool}}">
+                                    <badge:SfBadgeView.Content>
+                                        <Label  Text="{Binding Name}" TextColor="DarkBlue" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </badge:SfBadgeView.Content>
+                                    <badge:SfBadgeView.BadgeSettings>
+                                        <badge:BadgeSetting BadgePosition="TopRight" BackgroundColor="DarkBlue"/>
+                                    </badge:SfBadgeView.BadgeSettings>
+                                </badge:SfBadgeView>
+                                <Label  Text="{Binding Name}" IsVisible="{Binding HasSubItem}" TextColor="DarkBlue" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label  Text="{Binding Description}" TextColor="Blue" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </cards:SfCardView>
+                    </Grid>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+    </StackLayout>
+    
+    
+</ContentPage>

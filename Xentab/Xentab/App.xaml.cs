@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xentab.Model;
 using Xentab.Views;
 
 [assembly: ExportFont("Montserrat-Bold.ttf",Alias="Montserrat-Bold")]
@@ -11,16 +13,17 @@ using Xentab.Views;
 namespace Xentab
 {
     public partial class App : Application
-    {
+    {   
+        public static List<OrderItem> orderList = new List<OrderItem>();
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTY2NDI2QDMxMzkyZTM0MmUzMEkxUURtKzBVd2Mxc2xjNW4raFpoMEF6UGt6b3prYzlUL2tlMStSTitoUXc9");
             InitializeComponent();
 
             MainPage = new NavigationPage(new SetPage())
             {
                 BarBackgroundColor = Color.White,
                 BarTextColor = Color.FromRgb(0x19, 0xc1, 0x79)
-                
             };
              
             

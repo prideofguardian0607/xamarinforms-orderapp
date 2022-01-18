@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
@@ -17,6 +18,7 @@ namespace Xentab.Views
         public SetPage()
         {
             this.InitializeComponent();
+            //Store store = Task.Run(async () => await GetDataFromAPI()).GetAwaiter().GetResult();
         }
 
         async public void ShowTable(object sender, EventArgs e)

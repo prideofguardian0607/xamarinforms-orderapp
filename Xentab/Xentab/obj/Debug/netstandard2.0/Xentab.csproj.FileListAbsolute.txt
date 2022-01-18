@@ -38,3 +38,6 @@ D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab\obj\Debug\netstanda
 D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab\obj\Debug\netstandard2.0\Views\SetPage.xaml.g.cs
 D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab\obj\Debug\netstandard2.0\Views\Templates\SocialIconTemplate.xaml.g.cs
 D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab\obj\Debug\netstandard2.0\OrderPage.xaml.g.cs
+D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab\obj\Debug\netstandard2.0\MenuGroupPage.xaml.g.cs
+D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab\obj\Debug\netstandard2.0\MenuInfoPage.xaml.g.cs
+D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab\obj\Debug\netstandard2.0\SubMenuPage.xaml.g.cs

@@ -56,7 +56,7 @@ application_config:
 	/* system_property_count */
 	.long	0
 	/* number_of_assemblies_in_apk */
-	.long	130
+	.long	139
 	/* bundled_assembly_name_width */
 	.long	63
 	/* android_package_name */
@@ -99,7 +99,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",%progbits,1
 	.type	.L.env.str.8, %object
 .L.env.str.8:
-	.asciz	"290e7b09-820c-45c4-b300-106d86efb588"
+	.asciz	"edeab790-08dd-4b36-94a9-cd2ad009255f"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",%progbits,1
 	.type	.L.env.str.9, %object
@@ -416,6 +416,24 @@ app_system_properties:
 .L.env.buf.129:
 	.zero	63
 .L.env.buf.130:
+	.zero	63
+.L.env.buf.131:
+	.zero	63
+.L.env.buf.132:
+	.zero	63
+.L.env.buf.133:
+	.zero	63
+.L.env.buf.134:
+	.zero	63
+.L.env.buf.135:
+	.zero	63
+.L.env.buf.136:
+	.zero	63
+.L.env.buf.137:
+	.zero	63
+.L.env.buf.138:
+	.zero	63
+.L.env.buf.139:
 	.zero	63
 	/* Bundled assemblies data */
 	.section	.data.bundled_assemblies,"aw",%progbits
@@ -2113,4 +2131,121 @@ bundled_assemblies:
 	/* name */
 	.long	.L.env.buf.130
 
-	.size	bundled_assemblies, 3120
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.131
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.132
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.133
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.134
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.135
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.136
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.137
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.138
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.139
+
+	.size	bundled_assemblies, 3336

@@ -173,11 +173,16 @@ namespace Xentab
         {
             string result1 = await DisplayPromptAsync("Enter guest number", "", initialValue: "0", maxLength: 10, keyboard: Keyboard.Numeric);
             TableInfo selectedTable = e.ItemData as TableInfo;
-            App.TableName = selectedTable.Name;
-            App.Guest = Int32.Parse(result1);
-            if (result1 != null)
-                _ = Navigation.PushAsync(new MenuPage());
 
-        }
+            if (result1 != null)
+            {
+                await Navigation.PushModalAsync(new MenuPage(), true);
+                App.TableName = selectedTable.Name;
+                App.Guest = Int32.Parse(result1);
+                App.orderList = new List<Model.OrderItem>();
+            }
+
+
+            }
     }
 }

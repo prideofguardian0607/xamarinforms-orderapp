@@ -782,3 +782,4 @@ D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab.Android\obj\Debug\1
 D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab.Android\obj\Debug\120\android\assets\SQLitePCLRaw.core.dll
 D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab.Android\obj\Debug\120\android\assets\SQLitePCLRaw.lib.e_sqlite3.android.dll
 D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab.Android\obj\Debug\120\android\assets\SQLitePCLRaw.provider.e_sqlite3.dll
+D:\W_Dir\hgg\work in progress\task\task\Xentab\Xentab\Xentab.Android\obj\Debug\120\res\drawable\order.png

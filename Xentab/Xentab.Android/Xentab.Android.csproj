@@ -106,7 +106,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\order.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xentab\Xentab.csproj">
       <Project>{C37A4871-1447-48FF-B785-6D4E9FFD57FE}</Project>

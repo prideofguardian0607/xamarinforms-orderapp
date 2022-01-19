@@ -6,6 +6,7 @@
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
              xmlns:badge ="clr-namespace:Syncfusion.XForms.BadgeView;assembly=Syncfusion.SfBadgeView.XForms"
+             xmlns:syncEffectsView="clr-namespace:Syncfusion.XForms.EffectsView;assembly=Syncfusion.Core.XForms"
              xmlns:local="clr-namespace:Xentab"
              x:Class="Xentab.MenuInfoPage">
     <ContentPage.ToolbarItems>
@@ -13,7 +14,7 @@
             <ToolbarItem.IconImageSource>
                 <OnPlatform x:TypeArguments="ImageSource">
                     <On Platform="Android, UWP"
-                        Value="plus.png" />
+                        Value="order.png" />
                 </OnPlatform>
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
@@ -26,7 +27,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout Padding="10">
-        <syncfusion:SfListView x:Name="menuList" AutoFitMode="Height" >
+        <syncfusion:SfListView x:Name="menuList" AutoFitMode="Height" SelectionMode="Single" SelectionBackgroundColor="LightGray">
             <syncfusion:SfListView.LayoutManager>
                 <syncfusion:GridLayout SpanCount="2">
                     
@@ -34,12 +35,13 @@
             </syncfusion:SfListView.LayoutManager>
             <syncfusion:SfListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="2" Margin="2" >
-                        <cards:SfCardView IndicatorColor="{x:StaticResource Blue}" IndicatorThickness="10" HeightRequest="100" IndicatorPosition="Left" >
-                            <StackLayout Orientation="Vertical" Padding="20">
+                    <Grid Padding="5" Margin="2" >
+
+                        <StackLayout Orientation="Vertical">
+                            <cards:SfCardView IndicatorColor="{x:StaticResource Blue}" IndicatorThickness="10" HeightRequest="100" IndicatorPosition="Left" >
                                 <Label  Text="{Binding Name}" TextColor="{x:StaticResource Blue}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                            </StackLayout>
-                        </cards:SfCardView>
+                            </cards:SfCardView>
+                        </StackLayout>
                     </Grid>
                 </DataTemplate>
             </syncfusion:SfListView.ItemTemplate>

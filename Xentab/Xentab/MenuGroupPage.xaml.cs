@@ -16,8 +16,8 @@ namespace Xentab
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuGroupPage : ContentPage
     {
-        private const string groupUrl = "http://10.10.11.18:5000/api/menus/groups";//localhost corresponds 10.0.2.2 in android emulator
-        private const string menuUrl = "http://10.10.11.18:5000/api/menus";
+        private string groupUrl = App.baseUrl + "/api/menus/groups";//localhost corresponds 10.0.2.2 in android emulator
+        private string menuUrl = App.baseUrl + "/api/menus";
         private readonly HttpClient _client = new HttpClient();
 
         public MenuGroupPage(string tableName, int guest)

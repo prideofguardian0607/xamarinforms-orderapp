@@ -29,17 +29,16 @@
     <StackLayout Padding="10">
         <syncfusion:SfListView x:Name="menuList" AutoFitMode="Height" SelectionMode="Single" SelectionBackgroundColor="LightGray">
             <syncfusion:SfListView.LayoutManager>
-                <syncfusion:GridLayout SpanCount="2">
+                <syncfusion:GridLayout SpanCount="3">
                     
                 </syncfusion:GridLayout>
             </syncfusion:SfListView.LayoutManager>
             <syncfusion:SfListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="5" Margin="2" >
-
                         <StackLayout Orientation="Vertical">
                             <cards:SfCardView IndicatorColor="{x:StaticResource Blue}" IndicatorThickness="10" HeightRequest="100" IndicatorPosition="Left" >
-                                <Label  Text="{Binding Name}" TextColor="{x:StaticResource Blue}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label  Text="{Binding Name}" TextColor="{x:StaticResource Blue}" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                             </cards:SfCardView>
                         </StackLayout>
                     </Grid>

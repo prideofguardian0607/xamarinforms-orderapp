@@ -55,7 +55,7 @@ namespace Xentab
             }*/
             _viewModel = new MenuPageFlyoutViewModel()
             {
-                MenuItems = new ObservableCollection<MenuGroup>(App.menuList)
+                MenuItems = new ObservableCollection<MenuGroupInfo>(App.menuList)
             };
             BindingContext = _viewModel;
             
@@ -63,7 +63,7 @@ namespace Xentab
 
         private class MenuPageFlyoutViewModel : INotifyPropertyChanged
         {
-            public ObservableCollection<MenuGroup> MenuItems { get; set; }
+            public ObservableCollection<MenuGroupInfo> MenuItems { get; set; }
 
             public MenuPageFlyoutViewModel()
             {

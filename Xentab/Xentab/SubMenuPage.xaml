@@ -15,13 +15,10 @@
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-    <ContentPage.Resources>
-
-    </ContentPage.Resources>
     <StackLayout Padding="10">
         <syncfusion:SfListView x:Name="listView" AutoFitMode="Height" >
             <syncfusion:SfListView.LayoutManager>
-                <syncfusion:GridLayout SpanCount="2">
+                <syncfusion:GridLayout SpanCount="3">
 
                 </syncfusion:GridLayout>
             </syncfusion:SfListView.LayoutManager>
@@ -30,7 +27,7 @@
                     <Grid Padding="2" Margin="2" >
                         <cards:SfCardView IndicatorColor="{x:StaticResource Blue}" IndicatorThickness="10" HeightRequest="100" IndicatorPosition="Left" >
                             <StackLayout Orientation="Vertical" Padding="20">
-                                <Label  Text="{Binding Name}" TextColor="{x:StaticResource Blue}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label  Text="{Binding Name}" TextColor="{x:StaticResource Blue}" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                             </StackLayout>
                         </cards:SfCardView>
                     </Grid>

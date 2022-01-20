@@ -21,13 +21,14 @@ namespace Xentab
     public partial class TablePage : ContentPage
     {
         private readonly HttpClient _client = new HttpClient();
-        private const string GroupUrl = "http://10.10.11.18:5000/api/tables/groups";
-        private const string TableUrl = "http://10.10.11.18:5000/api/tables";
+        private string GroupUrl = App.baseUrl + "/api/tables/groups";
+        private string TableUrl = App.baseUrl + "/api/tables";
+        private string guest = "  0";
+
         public TablePage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            
         }
 
         protected override void OnAppearing()
@@ -47,6 +48,7 @@ namespace Xentab
                 var response = await _client.GetAsync(GroupUrl);
                 var body = await response.Content.ReadAsStringAsync();
                 List<GroupInfo> groups = JsonConvert.DeserializeObject<List<GroupInfo>>(body);
+                //App.menuList = groups;
                 var tabView = new SfTabView();
                 var overflowButtonSettings = new OverflowButtonSettings();
                 /*overflowButtonSettings.BackgroundColor = Color.Yellow;
@@ -63,30 +65,30 @@ namespace Xentab
                 for (int i = 0; i < groups.Count; i++)
                 {
                     SfListView listView = await ListView(groups, i);
-                    if (i == 1)    
-                        tabItems.Add(new SfTabItem()
-                        {
-                            Title = groups.ElementAt(i).Title,
-                            Content = listView,
-                            TitleFontSize = 20,
-                            SelectionColor = Color.FromRgb(0x4a, 0xca, 0xff),
-                            TitleFontAttributes = FontAttributes.Bold,
-                        });
-                    else
+                    
                         tabItems.Add(new SfTabItem()
                         {
                             Title = groups.ElementAt(i).Title,
                             TitleFontSize = 20,
                             TitleFontAttributes = FontAttributes.Bold,
                             Content = listView,
+                            TitleFontColor = Color.FromRgb(0x4a, 0xca, 0xff),
                             SelectionColor = Color.FromRgb(0x4a, 0xca, 0xff),
+                            
                         });
                 }
                 tabView.OverflowMode = OverflowMode.DropDown;
                 //tabView.TabHeaderBackgroundColor = Color.SkyBlue;
+
+                var selectionIndicatorSettings = new SelectionIndicatorSettings();
+                selectionIndicatorSettings.Color = Color.FromRgb(0x4a, 0xca, 0xff);
+                selectionIndicatorSettings.Position = SelectionIndicatorPosition.Top;
+                selectionIndicatorSettings.StrokeThickness = 10;
+                
+                tabView.SelectionIndicatorSettings = selectionIndicatorSettings;
                 tabView.TabHeaderPosition = TabHeaderPosition.Bottom;
                 tabView.Items = tabItems;
-                this.Content = tabView;
+                tabLayout.Children.Add(tabView);
 
             }
             catch (Exception e)
@@ -171,18 +173,38 @@ namespace Xentab
 
         private async void ListView_ItemTappedAsync(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
-            string result1 = await DisplayPromptAsync("Enter guest number", "", initialValue: "0", maxLength: 10, keyboard: Keyboard.Numeric);
+            //string result1 = await DisplayPromptAsync("Enter guest number", "", initialValue: "0", maxLength: 10, keyboard: Keyboard.Numeric);
             TableInfo selectedTable = e.ItemData as TableInfo;
-
-            if (result1 != null)
+            App.TableName = selectedTable.Name;
+            numberBoard.IsOpen = true;
+        }
+        private void NumClicked(object sender, EventArgs e)
+        {
+            Button selected = sender as Button;
+            if (guest.Equals("  0"))
+                guest = selected.Text;
+            else
+                guest += selected.Text;
+            numberBoard.PopupView.HeaderTitle = guest;
+        }
+        private void CancelClicked(object sender, EventArgs e)
+        {
+            if (!guest.Equals("  0"))
             {
-                await Navigation.PushModalAsync(new MenuPage(), true);
-                App.TableName = selectedTable.Name;
-                App.Guest = Int32.Parse(result1);
-                App.orderList = new List<Model.OrderItem>();
+                if (guest.Length > 1)
+                    guest = guest.Substring(0, guest.Length - 2);
+                else
+                    guest = "  0";
+                numberBoard.PopupView.HeaderTitle = guest;
             }
+        }
 
-
-            }
+        private void OkClicked(object sender, EventArgs e)
+        {
+           
+            _ = Navigation.PushModalAsync(new MenuPage(), true);
+            App.Guest = Int32.Parse(guest);
+            App.orderList = new List<Model.OrderItem>();
+        }
     }
 }

@@ -4298,11 +4298,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\W_Dir\\hgg\\work in progress\\task\\task\\Xentab\\Xentab\\Xentab.Android\\Xentab.Android.csproj",
+      "projectUniqueName": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab.Android\\Xentab.Android.csproj",
       "projectName": "Xentab.Android",
-      "projectPath": "D:\\W_Dir\\hgg\\work in progress\\task\\task\\Xentab\\Xentab\\Xentab.Android\\Xentab.Android.csproj",
+      "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab.Android\\Xentab.Android.csproj",
       "packagesPath": "C:\\Users\\GO.ON\\.nuget\\packages\\",
-      "outputPath": "D:\\W_Dir\\hgg\\work in progress\\task\\task\\Xentab\\Xentab\\Xentab.Android\\obj\\",
+      "outputPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -4324,8 +4324,8 @@
       "frameworks": {
         "monoandroid12.0": {
           "projectReferences": {
-            "D:\\W_Dir\\hgg\\work in progress\\task\\task\\Xentab\\Xentab\\Xentab\\Xentab.csproj": {
-              "projectPath": "D:\\W_Dir\\hgg\\work in progress\\task\\task\\Xentab\\Xentab\\Xentab\\Xentab.csproj"
+            "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj": {
+              "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj"
             }
           }
         }

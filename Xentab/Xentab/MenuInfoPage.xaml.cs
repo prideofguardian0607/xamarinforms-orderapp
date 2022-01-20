@@ -61,7 +61,6 @@ namespace Xentab
                 else
                 {
                     await Navigation.PushModalAsync(new ModifierPage(menuInfo), true);
-                    Console.WriteLine("akjdflkajkldfj");
                 }
 
 

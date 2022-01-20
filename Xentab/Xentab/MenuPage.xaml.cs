@@ -15,8 +15,8 @@ namespace Xentab
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : FlyoutPage
     {
-        private const string groupUrl = "http://10.10.11.18:5000/api/menus/groups";//localhost corresponds 10.0.2.2 in android emulator
-        private const string menuUrl = "http://10.10.11.18:5000/api/menus";
+        private string groupUrl = App.baseUrl + "/api/menus/groups";//localhost corresponds 10.0.2.2 in android emulator
+        private string menuUrl = App.baseUrl + "/api/menus";
         private readonly HttpClient _client = new HttpClient();
 
         public MenuPage()
@@ -26,7 +26,8 @@ namespace Xentab
             //((NavigationPage)this).BarBackgroundColor = Color.White;
             InitializeComponent();
             FlyoutPage.ListView.ItemTapped += ListView_ItemTapped;
-            GetMenu(App.menuList[0].Id, App.menuList[0].Name);
+            if(App.menuList.Count > 0)
+                GetMenu(App.menuList[0].Id, App.menuList[0].Name);
         }
 
         private async void ListView_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)

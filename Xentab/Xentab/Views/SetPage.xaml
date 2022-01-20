@@ -97,10 +97,10 @@
                                         x:Name="BaseUrlEntry"
                                         Margin="15,0"
                                         HeightRequest="40"
-                                        Placeholder="Set staion id here"
+                                        Placeholder="Set base url"
                                         PlaceholderColor="#606a7b"
                                         Style="{StaticResource BorderlessEntryStyle}"
-                                        Text="{Binding Password.Value}"
+                                        Text="http://"
                                         TextColor="#333942">
                                     </control:BorderlessEntry>
 
@@ -111,7 +111,7 @@
                         <buttons:SfButton
                             Grid.Row="3"
                             Margin="0,16"
-                            Command="{Binding LoginCommand}"
+                            Clicked="SetBaseUrl"
                             CornerRadius="25"
                             HorizontalOptions="Fill"
                             Style="{StaticResource GradientButtonStyle}"
@@ -133,7 +133,6 @@
                                         Placeholder="Set staion id here"
                                         PlaceholderColor="#606a7b"
                                         Style="{StaticResource BorderlessEntryStyle}"
-                                        Text="{Binding Password.Value}"
                                         TextColor="#333942">
                                     </control:BorderlessEntry>
 
@@ -144,7 +143,7 @@
                         <buttons:SfButton
                             Grid.Row="5"
                             Margin="0,16"
-                            Command="{Binding LoginCommand}"
+                            Clicked="SetId"
                             CornerRadius="25"
                             HorizontalOptions="Fill"
                             Style="{StaticResource GradientButtonStyle}"

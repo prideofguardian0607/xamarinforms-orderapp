@@ -3,6 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Xentab.ViewModels"
              xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
              x:Class="Xentab.TablePage">
-    
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="tabLayout">
+
+            </StackLayout>
+            <sfPopup:SfPopupLayout x:Name="numberBoard" StaysOpen="True" >
+                <sfPopup:SfPopupLayout.PopupView >
+                    <sfPopup:PopupView 
+                        AnimationMode="SlideOnBottom"
+                        HeaderTitle="0"
+                        HeightRequest="400"
+                        ShowFooter="False">
+                        <sfPopup:PopupView.PopupStyle>
+                            <sfPopup:PopupStyle HeaderBackgroundColor="#4acaff"
+                                    HeaderFontAttribute="Bold"
+                                    
+                                    HeaderFontFamily="Helvetica-Bold"
+                                    HeaderFontSize="30"
+                                    HeaderTextAlignment="Center"
+                                    HeaderTextColor="White"
+                                    OverlayColor="#4acaff" 
+                                    OverlayOpacity="0.2"/>
+                        </sfPopup:PopupView.PopupStyle>
+                        <sfPopup:PopupView.ContentTemplate>
+                            <DataTemplate >
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Orientation="Vertical">
+                                    <Grid HorizontalOptions="Center" Padding="30" ColumnSpacing="20" RowSpacing="20">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Button Text="1" Clicked="NumClicked" Grid.Row="0" Grid.Column="0" HeightRequest="60"  WidthRequest="60" CornerRadius="40" BackgroundColor="#4acaff" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                        <Button Text="2" Clicked="NumClicked" Grid.Row="0" Grid.Column="1" HeightRequest="60" WidthRequest="60" CornerRadius="40" BackgroundColor="#4acaff" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                        <Button Text="3" Clicked="NumClicked" Grid.Row="0" Grid.Column="2" HeightRequest="60" WidthRequest="60" CornerRadius="40" BackgroundColor="#4acaff" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                        <Button Text="4" Clicked="NumClicked" Grid.Row="1" Grid.Column="0" HeightRequest="60" WidthRequest="60" CornerRadius="40" BackgroundColor="#4acaff" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                        <Button Text="5" Clicked="NumClicked" Grid.Row="1" Grid.Column="1" HeightRequest="60" WidthRequest="60" CornerRadius="40" BackgroundColor="#4acaff" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                        <Button Text="6" Clicked="NumClicked" Grid.Row="1" Grid.Column="2" HeightRequest="60" WidthRequest="60" CornerRadius="40" BackgroundColor="#4acaff" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                        <Button Text="7" Clicked="NumClicked" Grid.Row="2" Grid.Column="0" HeightRequest="60" WidthRequest="60" CornerRadius="40" BackgroundColor="#4acaff" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                        <Button Text="8" Clicked="NumClicked" Grid.Row="2" Grid.Column="1" HeightRequest="60" WidthRequest="60" CornerRadius="40" BackgroundColor="#4acaff" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                        <Button Text="9" Clicked="NumClicked" Grid.Row="2" Grid.Column="2" HeightRequest="60" WidthRequest="60" CornerRadius="40" BackgroundColor="#4acaff" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                        <Button Text="X" Clicked="CancelClicked" Grid.Row="3" Grid.Column="0" HeightRequest="60" WidthRequest="60" CornerRadius="40" BackgroundColor="OrangeRed" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                        <Button Text="0" Clicked="NumClicked" Grid.Row="3" Grid.Column="1" HeightRequest="60" WidthRequest="60" CornerRadius="40" BackgroundColor="#4acaff" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                        <ImageButton Clicked="OkClicked" Grid.Row="3" Grid.Column="2" HeightRequest="60" WidthRequest="60" CornerRadius="40" BackgroundColor="#82c815"  Source="green.png"  />
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </sfPopup:PopupView.ContentTemplate>
+                    </sfPopup:PopupView>
+                </sfPopup:SfPopupLayout.PopupView>
+            </sfPopup:SfPopupLayout>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

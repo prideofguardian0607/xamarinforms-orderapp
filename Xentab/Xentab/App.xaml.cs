@@ -19,7 +19,9 @@ namespace Xentab
     public partial class App : Application
     {   
         public static List<OrderItem> orderList = new List<OrderItem>();
-        public static List<MenuGroup> menuList = new List<MenuGroup>();
+        public static List<MenuGroupInfo> menuList = new List<MenuGroupInfo>();
+        public static string baseUrl;
+        public static int Id;
         public static string TableName { get; set; }
         public static int Guest { get; set; }
         public App()
@@ -35,22 +37,10 @@ namespace Xentab
       
         }
 
-        protected override async void OnStart()
+        protected override void OnStart()
         {
             base.OnStart();
-            const string groupUrl = "http://10.10.11.18:5000/api/menus/groups";//localhost corresponds 10.0.2.2 in android emulator
-            HttpClient _client = new HttpClient();
-            try
-            {
-                var response = await _client.GetAsync(groupUrl);
-                var body = await response.Content.ReadAsStringAsync();
-                menuList = JsonConvert.DeserializeObject<List<MenuGroup>>(body);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            
         }
 
         protected override void OnSleep()

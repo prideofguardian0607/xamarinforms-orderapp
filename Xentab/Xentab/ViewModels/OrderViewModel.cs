@@ -33,4 +33,23 @@ namespace Xentab.ViewModels
 			
         }
 	}
+	public class LabelViewModel : BaseVM
+	{
+		public string guest;
+		public string Guest
+		{
+			get
+			{
+				return guest;
+			}
+			set
+			{
+				SetProperty(ref guest, value);
+			}
+		}
+		public LabelViewModel()
+		{
+
+		}
+	}
 }

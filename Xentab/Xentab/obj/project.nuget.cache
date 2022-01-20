@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YyeZ9tQR2zsrJstkDWL72L5R93ej+dYh+6CgNkTog2JdfOPWCarE2QhppUU8oiZaZnUKK7+/SAvV8BC+Vrbx2w==",
+  "dgSpecHash": "i8EtB/p5W8mWjN3WrnjC+jy49gmRIgIivc9r1qIlhzFzr3xK+zXmN20uIRRNxFvolruMNOP9jyg7t4WKiBRPnA==",
   "success": true,
-  "projectFilePath": "D:\\W_Dir\\hgg\\work in progress\\task\\task\\Xentab\\Xentab\\Xentab\\Xentab.csproj",
+  "projectFilePath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GO.ON\\.nuget\\packages\\magicgradients\\1.3.1\\magicgradients.1.3.1.nupkg.sha512",
     "C:\\Users\\GO.ON\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

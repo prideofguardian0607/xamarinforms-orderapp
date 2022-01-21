@@ -1,4 +1,5 @@
-﻿using Syncfusion.XForms.EffectsView;
+﻿using Syncfusion.ListView.XForms;
+using Syncfusion.XForms.EffectsView;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,8 +28,10 @@ namespace Xentab
                 Text = parentName,
             });
             InitializeComponent();
+            menuList.LayoutManager = new GridLayout() { SpanCount = Device.Idiom == TargetIdiom.Tablet ? 6 : 3 };
             menuList.ItemsSource = new ObservableCollection<MenuInfo>(menuInfo);
             menuList.ItemTapped += ListView_ItemTapped;
+            
         }
         private async void ListView_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
@@ -39,7 +42,7 @@ namespace Xentab
             else
             {
                 OrderItem found = App.orderList.FirstOrDefault(o => o.Id == menuInfo.Id);
-                
+
 
                 if (menuInfo.ModifierLevels[0].Modifiers.Count == 0)
                 {
@@ -60,7 +63,9 @@ namespace Xentab
                 }
                 else
                 {
-                    await Navigation.PushModalAsync(new ModifierPage(menuInfo), true);
+
+                    //this.Content = new ModifierPage(menuInfo).Content;
+                    await Navigation.PushAsync(new ModifierPage(menuInfo), true);
                 }
 
 

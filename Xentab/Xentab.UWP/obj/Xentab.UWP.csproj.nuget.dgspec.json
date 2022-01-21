@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab.UWP\\Xentab.UWP.csproj": {}
+    "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.UWP\\Xentab.UWP.csproj": {}
   },
   "projects": {
-    "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab.UWP\\Xentab.UWP.csproj": {
+    "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.UWP\\Xentab.UWP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab.UWP\\Xentab.UWP.csproj",
+        "projectUniqueName": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.UWP\\Xentab.UWP.csproj",
         "projectName": "Xentab.UWP",
-        "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab.UWP\\Xentab.UWP.csproj",
+        "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.UWP\\Xentab.UWP.csproj",
         "packagesPath": "C:\\Users\\GO.ON\\.nuget\\packages\\",
-        "outputPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab.UWP\\obj\\",
+        "outputPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.UWP\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -34,8 +34,8 @@
         "frameworks": {
           "uap10.0.16299": {
             "projectReferences": {
-              "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj": {
-                "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj"
+              "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj": {
+                "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj"
               }
             }
           }
@@ -108,14 +108,14 @@
         }
       }
     },
-    "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj": {
+    "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj",
+        "projectUniqueName": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj",
         "projectName": "Xentab",
-        "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj",
+        "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj",
         "packagesPath": "C:\\Users\\GO.ON\\.nuget\\packages\\",
-        "outputPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\obj\\",
+        "outputPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

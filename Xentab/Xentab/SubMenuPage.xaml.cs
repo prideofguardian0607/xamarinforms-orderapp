@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Syncfusion.ListView.XForms;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace Xentab
             });*/
             //NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            listView.LayoutManager = new GridLayout() { SpanCount = Device.Idiom == TargetIdiom.Tablet ? 6 : 3 };
             listView.ItemsSource = new ObservableCollection<SubItem>(sub);
             listView.ItemTapped += ListView_ItemTapped;
         }

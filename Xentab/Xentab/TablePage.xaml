@@ -11,22 +11,24 @@
 
             </StackLayout>
             <sfPopup:SfPopupLayout x:Name="numberBoard" StaysOpen="True" >
-                <sfPopup:SfPopupLayout.PopupView >
+                <sfPopup:SfPopupLayout.PopupView>
                     <sfPopup:PopupView 
                         AnimationMode="SlideOnBottom"
-                        HeaderTitle="0"
+                        AnimationDuration="600"
+                        HeaderTitle="    0"
                         HeightRequest="400"
+                        
                         ShowFooter="False">
                         <sfPopup:PopupView.PopupStyle>
-                            <sfPopup:PopupStyle HeaderBackgroundColor="#4acaff"
-                                    HeaderFontAttribute="Bold"
-                                    
-                                    HeaderFontFamily="Helvetica-Bold"
-                                    HeaderFontSize="30"
-                                    HeaderTextAlignment="Center"
-                                    HeaderTextColor="White"
-                                    OverlayColor="#4acaff" 
-                                    OverlayOpacity="0.2"/>
+                            <sfPopup:PopupStyle 
+                                HeaderBackgroundColor="#4acaff"
+                                HeaderFontAttribute="Bold"
+                                HeaderFontFamily="Helvetica-Bold"
+                                HeaderFontSize="30"
+                                HeaderTextAlignment="Center"
+                                HeaderTextColor="White"
+                                OverlayColor="#4acaff" 
+                                OverlayOpacity="0.2"/>
                         </sfPopup:PopupView.PopupStyle>
                         <sfPopup:PopupView.ContentTemplate>
                             <DataTemplate >

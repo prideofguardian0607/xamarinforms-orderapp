@@ -3112,11 +3112,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab.iOS\\Xentab.iOS.csproj",
+      "projectUniqueName": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.iOS\\Xentab.iOS.csproj",
       "projectName": "Xentab.iOS",
-      "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab.iOS\\Xentab.iOS.csproj",
+      "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.iOS\\Xentab.iOS.csproj",
       "packagesPath": "C:\\Users\\GO.ON\\.nuget\\packages\\",
-      "outputPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab.iOS\\obj\\",
+      "outputPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -3138,8 +3138,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj": {
-              "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj"
+            "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj": {
+              "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj"
             }
           }
         }

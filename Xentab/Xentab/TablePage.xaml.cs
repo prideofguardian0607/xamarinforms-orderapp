@@ -23,7 +23,7 @@ namespace Xentab
         private readonly HttpClient _client = new HttpClient();
         private string GroupUrl = App.baseUrl + "/api/tables/groups";
         private string TableUrl = App.baseUrl + "/api/tables";
-        private string guest = "  0";
+        private string guest = "    0";
 
         public TablePage()
         {
@@ -89,7 +89,6 @@ namespace Xentab
                 tabView.TabHeaderPosition = TabHeaderPosition.Bottom;
                 tabView.Items = tabItems;
                 tabLayout.Children.Add(tabView);
-
             }
             catch (Exception e)
             {
@@ -104,7 +103,8 @@ namespace Xentab
             SfListView listView;
             TableViewModel tableViewModel = new TableViewModel();
             listView = new SfListView();
-            listView.LayoutManager = new GridLayout() { SpanCount = 2 };
+
+            listView.LayoutManager = new GridLayout() { SpanCount = Device.Idiom == TargetIdiom.Tablet ? 6 : 2 };
             listView.ItemSize = 60;
             listView.Margin = 20;
             listView.ItemSpacing = 3;
@@ -171,7 +171,7 @@ namespace Xentab
             return listView;
         }
 
-        private async void ListView_ItemTappedAsync(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+        private void ListView_ItemTappedAsync(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
             //string result1 = await DisplayPromptAsync("Enter guest number", "", initialValue: "0", maxLength: 10, keyboard: Keyboard.Numeric);
             TableInfo selectedTable = e.ItemData as TableInfo;
@@ -181,30 +181,32 @@ namespace Xentab
         private void NumClicked(object sender, EventArgs e)
         {
             Button selected = sender as Button;
-            if (guest.Equals("  0"))
-                guest = selected.Text;
+            if (guest.Equals("    0"))
+                guest = "    " + selected.Text;
             else
                 guest += selected.Text;
             numberBoard.PopupView.HeaderTitle = guest;
         }
         private void CancelClicked(object sender, EventArgs e)
         {
-            if (!guest.Equals("  0"))
+            if (!guest.Equals("    0"))
             {
-                if (guest.Length > 1)
-                    guest = guest.Substring(0, guest.Length - 2);
+                if (guest.Length > 5)
+                    guest = guest.Substring(0, guest.Length - 1);
                 else
-                    guest = "  0";
+                    guest = "    0";
                 numberBoard.PopupView.HeaderTitle = guest;
             }
         }
 
         private void OkClicked(object sender, EventArgs e)
         {
-           
-            _ = Navigation.PushModalAsync(new MenuPage(), true);
             App.Guest = Int32.Parse(guest);
             App.orderList = new List<Model.OrderItem>();
+            guest = "    0";
+            _ = Navigation.PushModalAsync(new MenuPage(), true);
+            
         }
+
     }
 }

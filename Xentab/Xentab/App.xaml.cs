@@ -21,7 +21,8 @@ namespace Xentab
         public static List<OrderItem> orderList = new List<OrderItem>();
         public static List<MenuGroupInfo> menuList = new List<MenuGroupInfo>();
         public static string baseUrl;
-        public static int Id;
+
+        public static string Id;
         public static string TableName { get; set; }
         public static int Guest { get; set; }
         public App()
@@ -31,7 +32,7 @@ namespace Xentab
 
             MainPage = new NavigationPage(new SetPage())
             {
-                BarBackgroundColor = Color.FromRgb(0x4a, 0xca, 0xff),
+                BarBackgroundColor = Color.FromHex("FFBE00"),
                 BarTextColor = Color.White,
             };
       

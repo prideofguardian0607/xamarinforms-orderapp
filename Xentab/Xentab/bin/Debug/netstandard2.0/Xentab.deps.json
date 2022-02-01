@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "Xentab/1.0.0": {
         "dependencies": {
+          "Acr.UserDialogs": "7.2.0.562",
           "MagicGradients": "1.3.1",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "13.0.1",
@@ -22,12 +23,21 @@
           "Syncfusion.Xamarin.SfPopupLayout": "19.4.0.42",
           "Syncfusion.Xamarin.SfRating": "19.4.0.42",
           "Syncfusion.Xamarin.SfTabView": "19.4.0.42",
+          "System.Text.Json": "6.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196",
           "sqlite-net-pcl": "1.8.116"
         },
         "runtime": {
           "Xentab.dll": {}
+        }
+      },
+      "Acr.UserDialogs/7.2.0.562": {
+        "runtime": {
+          "lib/netstandard2.0/Acr.UserDialogs.dll": {
+            "assemblyVersion": "7.2.0.0",
+            "fileVersion": "7.2.0.0"
+          }
         }
       },
       "MagicGradients/1.3.1": {
@@ -39,6 +49,17 @@
           "lib/netstandard2.0/MagicGradients.dll": {
             "assemblyVersion": "1.3.1.0",
             "fileVersion": "1.3.1.0"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+        "dependencies": {
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
           }
         }
       },
@@ -79,7 +100,7 @@
       "SkiaSharp/1.68.1.1": {
         "dependencies": {
           "System.IO.UnmanagedMemoryStream": "4.3.0",
-          "System.Memory": "4.5.3"
+          "System.Memory": "4.5.4"
         },
         "runtime": {
           "lib/netstandard1.3/SkiaSharp.dll": {
@@ -120,7 +141,7 @@
       },
       "SQLitePCLRaw.core/2.0.4": {
         "dependencies": {
-          "System.Memory": "4.5.3"
+          "System.Memory": "4.5.4"
         },
         "runtime": {
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {
@@ -275,11 +296,11 @@
           }
         }
       },
-      "System.Buffers/4.4.0": {
+      "System.Buffers/4.5.1": {
         "runtime": {
           "lib/netstandard2.0/System.Buffers.dll": {
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.6.25519.3"
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.6.28619.1"
           }
         }
       },
@@ -319,7 +340,7 @@
       },
       "System.IO.UnmanagedMemoryStream/4.3.0": {
         "dependencies": {
-          "System.Buffers": "4.4.0",
+          "System.Buffers": "4.5.1",
           "System.Diagnostics.Debug": "4.3.0",
           "System.IO": "4.3.0",
           "System.IO.FileSystem.Primitives": "4.3.0",
@@ -336,16 +357,16 @@
           }
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "dependencies": {
-          "System.Buffers": "4.4.0",
+          "System.Buffers": "4.5.1",
           "System.Numerics.Vectors": "4.5.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/System.Memory.dll": {
             "assemblyVersion": "4.0.1.1",
-            "fileVersion": "4.6.27617.2"
+            "fileVersion": "4.6.28619.1"
           }
         }
       },
@@ -388,11 +409,11 @@
           "Microsoft.NETCore.Targets": "1.1.0"
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {
-            "assemblyVersion": "4.0.4.1",
-            "fileVersion": "4.6.26919.2"
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
           }
         }
       },
@@ -420,6 +441,36 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.Text.Encodings.Web/6.0.0": {
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.4",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "System.Text.Json/6.0.1": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.4",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "System.Text.Encodings.Web": "6.0.0",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Json.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.121.56705"
+          }
+        }
+      },
       "System.Threading/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0",
@@ -437,6 +488,17 @@
           "Microsoft.NETCore.Platforms": "1.1.0",
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.4": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {
+            "assemblyVersion": "4.2.0.1",
+            "fileVersion": "4.6.28619.1"
+          }
         }
       },
       "Xamarin.Essentials/1.7.0": {
@@ -474,12 +536,26 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Acr.UserDialogs/7.2.0.562": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AOx6gb2pHSjn38Li/4EAZdQYgKTas9kYXoVJxZJONMbWlrDEUynk7TnqdxhN+yZVLAQpKMqEE5Jw4stZb5m/5w==",
+      "path": "acr.userdialogs/7.2.0.562",
+      "hashPath": "acr.userdialogs.7.2.0.562.nupkg.sha512"
+    },
     "MagicGradients/1.3.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-zdW8QkgsE9Muiri3NSKt/j2AtoTr4UDCZdwhgs1lOi9s87T8PMek6UKT36QHt7l+5cfSl+nz8LujNDxLfoXMgw==",
       "path": "magicgradients/1.3.1",
       "hashPath": "magicgradients.1.3.1.nupkg.sha512"
+    },
+    "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg==",
+      "path": "microsoft.bcl.asyncinterfaces/6.0.0",
+      "hashPath": "microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -656,12 +732,12 @@
       "path": "syncfusion.xamarin.sftabview/19.4.0.42",
       "hashPath": "syncfusion.xamarin.sftabview.19.4.0.42.nupkg.sha512"
     },
-    "System.Buffers/4.4.0": {
+    "System.Buffers/4.5.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
-      "path": "system.buffers/4.4.0",
-      "hashPath": "system.buffers.4.4.0.nupkg.sha512"
+      "sha512": "sha512-Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
+      "path": "system.buffers/4.5.1",
+      "hashPath": "system.buffers.4.5.1.nupkg.sha512"
     },
     "System.Diagnostics.Debug/4.3.0": {
       "type": "package",
@@ -698,12 +774,12 @@
       "path": "system.io.unmanagedmemorystream/4.3.0",
       "hashPath": "system.io.unmanagedmemorystream.4.3.0.nupkg.sha512"
     },
-    "System.Memory/4.5.3": {
+    "System.Memory/4.5.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
-      "path": "system.memory/4.5.3",
-      "hashPath": "system.memory.4.5.3.nupkg.sha512"
+      "sha512": "sha512-1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
+      "path": "system.memory/4.5.4",
+      "hashPath": "system.memory.4.5.4.nupkg.sha512"
     },
     "System.Numerics.Vectors/4.5.0": {
       "type": "package",
@@ -740,12 +816,12 @@
       "path": "system.runtime/4.3.0",
       "hashPath": "system.runtime.4.3.0.nupkg.sha512"
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
-      "path": "system.runtime.compilerservices.unsafe/4.5.2",
-      "hashPath": "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
     "System.Runtime.Handles/4.3.0": {
       "type": "package",
@@ -768,6 +844,20 @@
       "path": "system.text.encoding/4.3.0",
       "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
     },
+    "System.Text.Encodings.Web/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Vg8eB5Tawm1IFqj4TVK1czJX89rhFxJo9ELqc/Eiq0eXy13RK00eubyU6TJE6y+GQXjyV5gSfiewDUZjQgSE0w==",
+      "path": "system.text.encodings.web/6.0.0",
+      "hashPath": "system.text.encodings.web.6.0.0.nupkg.sha512"
+    },
+    "System.Text.Json/6.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-X3cTdM+jna1YyfTUzToW7aVgINFv7R1W4+1+3hua/YCyLjApPoR8fd+2Cep9DbfYjbv+rBx4K6dlmAWEJr9AHg==",
+      "path": "system.text.json/6.0.1",
+      "hashPath": "system.text.json.6.0.1.nupkg.sha512"
+    },
     "System.Threading/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -781,6 +871,13 @@
       "sha512": "sha512-LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
+    },
+    "System.Threading.Tasks.Extensions/4.5.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
+      "path": "system.threading.tasks.extensions/4.5.4",
+      "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
     },
     "Xamarin.Essentials/1.7.0": {
       "type": "package",

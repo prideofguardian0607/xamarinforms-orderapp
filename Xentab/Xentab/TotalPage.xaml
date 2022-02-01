@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms" xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             x:Name="totalPage"
+             x:Class="Xentab.TotalPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" BackgroundColor="Black">
+            <sfPopup:SfPopupLayout x:Name="modifierBoard" StaysOpen="True" >
+                <sfPopup:SfPopupLayout.PopupView>
+                    <sfPopup:PopupView 
+                        AnimationMode="SlideOnLeft"
+                        AnimationDuration="600"
+                        HeaderTitle=""
+                        HeightRequest="500">
+                        <sfPopup:PopupView.PopupStyle>
+                            <sfPopup:PopupStyle 
+                                HeaderBackgroundColor="White"
+                                HeaderFontAttribute="Bold"
+                                HeaderFontFamily="Helvetica-Bold"
+                                HeaderFontSize="20"
+                                HeaderTextAlignment="Center"
+                                HeaderTextColor="OrangeRed"
+                                OverlayColor="#0591e8" 
+                                OverlayOpacity="0.2"/>
+                        </sfPopup:PopupView.PopupStyle>
+                        <sfPopup:PopupView.ContentTemplate>
+                            <DataTemplate >
+                                <StackLayout WidthRequest="400" HorizontalOptions="Center" VerticalOptions="Center" Orientation="Vertical">
+                                    <StackLayout x:Name="modifyLayout" Margin="5">
+                                        <syncfusion:SfListView 
+                                            x:Name="modifierList" 
+                                            ItemsSource="{Binding Modifier}"
+                                            ItemSize="50">
+                                            <syncfusion:SfListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Frame x:Name="frame" HasShadow="True" Padding="5" Margin="5" BackgroundColor="White" BorderColor="Gray" OutlineColor="White">
+                                                        <Frame.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="ModifierChanged" />
+                                                        </Frame.GestureRecognizers>
+                                                        <StackLayout HorizontalOptions="Center" >
+                                                            <Label VerticalOptions="FillAndExpand" 
+                                                                x:Name="ModifierItem"
+                                                                HorizontalTextAlignment="Center"
+                                                                Text="{Binding name}" 
+                                                                TextColor="{x:StaticResource Blue}"
+                                                                FontSize="20">
+                                                            </Label>
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </DataTemplate>
+                                            </syncfusion:SfListView.ItemTemplate>
+                                        </syncfusion:SfListView>
+                                    </StackLayout>
+                                </StackLayout>
+                            </DataTemplate>
+                        </sfPopup:PopupView.ContentTemplate>
+                        <sfPopup:PopupView.FooterTemplate>
+                            <DataTemplate>
+                                <Button 
+                                    x:Name="modifyButton" 
+                                    Text="DONE" 
+                                    BackgroundColor="{x:StaticResource Blue}" 
+                                    TextColor="White" 
+                                    FontSize="Large" 
+                                    FontAttributes="Bold" 
+                                    IsEnabled="{Binding ModifierBtnEnabled}" 
+                                    Clicked="ModifyDone" 
+                                    VerticalOptions="Start" 
+                                    HorizontalOptions="FillAndExpand" />
+                            </DataTemplate>
+                        </sfPopup:PopupView.FooterTemplate>
+                    </sfPopup:PopupView>
+                </sfPopup:SfPopupLayout.PopupView>
+            </sfPopup:SfPopupLayout>
+            <Grid RowDefinitions="*, 2*">
+                <StackLayout x:Name="orderLayout" Grid.Row="0" BackgroundColor="White">
+                    <Grid RowDefinitions="5*, *">
+                        <syncfusion:SfListView 
+                            x:Name="orderList" 
+                            Grid.Row="0"
+                            ItemsSource="{Binding Order}"
+                            ItemSize="50">
+                            <syncfusion:SfListView.LayoutManager>
+                                <syncfusion:GridLayout SpanCount="1">
+                                </syncfusion:GridLayout>
+                            </syncfusion:SfListView.LayoutManager>
+                            <syncfusion:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="50,0,50,0" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label VerticalOptions="Center" Text="{Binding Num}" FontSize="15" FontAttributes="Bold" Grid.Column="0"/>
+                                        <Label VerticalOptions="Center" Text="{Binding Name}" FontSize="15" FontAttributes="Bold" Grid.Column="1"/>
+                                        <Label VerticalOptions="Center" Text="{Binding Price, StringFormat='${0:F2}'}" FontSize="15" Grid.Column="2"/>
+                                        <Label VerticalOptions="Center"  Text="x" Grid.Column="3" FontSize="15">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                Command="{Binding Path=BindingContext.cancelOrderCommand, Source={x:Reference totalPage}}"
+                                                CommandParameter="{Binding .}"
+                                                NumberOfTapsRequired="1"
+                                                />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </Grid>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+                        </syncfusion:SfListView>
+                        <StackLayout Grid.Row="1">
+                            <border:SfBorder HorizontalOptions="FillAndExpand" CornerRadius="5" BorderColor = "{x:StaticResource Blue}"
+                            BorderThickness="0,0,0,5" >
+                                <Grid ColumnDefinitions="*, *, *" HeightRequest="100" BackgroundColor="#252525" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="Table: " TextColor="{x:StaticResource Blue}" HorizontalTextAlignment="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="23" HorizontalOptions="Center"></Label>
+                                        <Label Text="{Binding TableName}" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" FontSize="25" FontAttributes="Bold"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="Total: " TextColor="{x:StaticResource Blue}" HorizontalTextAlignment="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="23" HorizontalOptions="Center"></Label>
+                                        <Label x:Name="TotalLabel" Text="" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" FontSize="25" FontAttributes="Bold"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="2" Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="Guest(s): " TextColor="{x:StaticResource Blue}" HorizontalTextAlignment="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="23" HorizontalOptions="Center"></Label>
+                                        <Label Text="{Binding Guest}" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" FontSize="25" FontAttributes="Bold"/>
+                                    </StackLayout>
+                                </Grid>
+                            </border:SfBorder>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+                <Grid Grid.Row="1" ColumnDefinitions="3*, 9*, 2*">
+                    <StackLayout Grid.Column="0" x:Name="menuGroupLayout" BackgroundColor="#252525">
+                        <syncfusion:SfListView x:Name="menuGroupList"  FocusBorderColor="#0591e8" FocusBorderThickness="0, 0, 10, 0" SelectionBackgroundColor="#3d3d3d"
+                      ItemsSource="{Binding MenuGroup}"
+                      ItemSize="60">
+                            <syncfusion:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <border:SfBorder x:Name="border" HorizontalOptions="FillAndExpand" 
+                                        VerticalOptions="FillAndExpand" BorderColor = "#3d3d3d"
+                                        BorderThickness="0,0,0,3" >
+                                        <StackLayout HorizontalOptions="Center" >
+                                            <Label VerticalOptions="FillAndExpand" 
+                                                VerticalTextAlignment="Center" 
+                                                Text="{Binding Name}" 
+                                                TextColor="White"
+                                                FontAttributes="Bold"
+                                                FontSize="20"/>
+                                        </StackLayout>
+                                    </border:SfBorder>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+                        </syncfusion:SfListView>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" x:Name="menuLayout" BackgroundColor="#252525" Padding="30">
+                        <syncfusion:SfListView x:Name="menuList" ItemsSource="{Binding Menu}" ItemSpacing="15" AutoFitMode="Height" SelectionMode="Single" SelectionBackgroundColor="#3d3d3d">
+                            <syncfusion:SfListView.LayoutManager>
+                                <syncfusion:GridLayout SpanCount="3" />
+                            </syncfusion:SfListView.LayoutManager>
+                            <syncfusion:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="5" Margin="2" >
+                                        <StackLayout Orientation="Vertical">
+                                            <cards:SfCardView HeightRequest="150" CornerRadius="20" >
+                                                <Label  Text="{Binding Name}" TextColor="#252525" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                            </cards:SfCardView>
+                                        </StackLayout>
+                                    </Grid>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+                        </syncfusion:SfListView>
+                        <syncfusion:SfListView x:Name="subMenuList" IsVisible="False" ItemSpacing="15" ItemsSource="{Binding SubMenu}" ColumnSpacing="30" AutoFitMode="Height" SelectionMode="Single" SelectionBackgroundColor="#3d3d3d">
+                            <syncfusion:SfListView.LayoutManager>
+                                <syncfusion:GridLayout SpanCount="3" />
+                            </syncfusion:SfListView.LayoutManager>
+                            <syncfusion:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="5" Margin="2" >
+                                        <StackLayout Orientation="Vertical">
+                                            <cards:SfCardView  HeightRequest="150" CornerRadius="20">
+                                                <Label Text="{Binding Name}" TextColor="#252525" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                            </cards:SfCardView>
+                                        </StackLayout>
+                                    </Grid>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+                        </syncfusion:SfListView>
+                        <StackLayout x:Name="notification">
+
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Spacing="15" Grid.Column="2" x:Name="panelLayout" BackgroundColor="#252525" Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="20">
+                        <Button Text="ADD" Clicked="Add" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="{x:StaticResource Blue}" CornerRadius="3" TextColor="White" FontSize="20"></Button>
+                        <Button Text="CANCEL" Clicked="Cancel" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="{x:StaticResource Blue}" CornerRadius="3" TextColor="White" FontSize="20"></Button>
+                        <Button Text="UP" Clicked="Up" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="{x:StaticResource Blue}" CornerRadius="3" TextColor="White" FontSize="20"></Button>
+                        <Button Text="DOWN" Clicked="Down" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="{x:StaticResource Blue}" CornerRadius="3" TextColor="White" FontSize="20"></Button>
+                        <Button Text="Modifier" VerticalOptions="Center" Clicked="GoToModifierPage" HorizontalOptions="FillAndExpand" BackgroundColor="{x:StaticResource Blue}" CornerRadius="3" TextColor="White" FontSize="20"></Button>
+                        <Button Text="Print" VerticalOptions="Center" Clicked="Print" HorizontalOptions="FillAndExpand" BackgroundColor="{x:StaticResource Blue}" CornerRadius="3" TextColor="White" FontSize="20"></Button>
+                        <Button Text="Cancel Order" VerticalOptions="Center" x:Name="cancelButton" Clicked="OrderCancel" HorizontalOptions="FillAndExpand" BackgroundColor="{x:StaticResource Blue}" CornerRadius="3" TextColor="White" FontSize="20"></Button>
+                        <Button Text="" x:Name="totalButton" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="{x:StaticResource Blue}" CornerRadius="3" TextColor="White" FontSize="20"></Button>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

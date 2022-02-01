@@ -6,6 +6,7 @@
   <FlyoutPage.Flyout>
     <pages:MenuPageFlyout x:Name="FlyoutPage" />
   </FlyoutPage.Flyout>
+    
   <FlyoutPage.Detail>
     <NavigationPage>
       <x:Arguments>

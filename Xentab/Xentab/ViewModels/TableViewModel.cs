@@ -133,13 +133,7 @@ namespace Xentab.ViewModels
     public class TableViewModel : INotifyPropertyChanged
 	{
 		private ObservableCollection<TableInfo> tableList;
-		public event PropertyChangedEventHandler PropertyChanged;
-
-
-		private const string groupUrl = "http://10.10.11.18:5000/api/tables";//localhost corresponds 10.0.2.2 in android emulator
-        private readonly HttpClient _client = new HttpClient();
-        
-
+        public event PropertyChangedEventHandler PropertyChanged;
 		public ObservableCollection<TableInfo> TableList
 		{
 			get { return tableList; }

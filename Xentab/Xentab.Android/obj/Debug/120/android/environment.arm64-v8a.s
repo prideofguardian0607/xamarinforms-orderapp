@@ -36,7 +36,7 @@ application_config:
 	/* system_property_count */
 	.word	0
 	/* number_of_assemblies_in_apk */
-	.word	139
+	.word	145
 	/* bundled_assembly_name_width */
 	.word	63
 	/* android_package_name */
@@ -79,7 +79,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
-	.asciz	"b4099c38-b40e-41fe-bf2e-165b05deadd7"
+	.asciz	"d1339df2-648b-4953-8993-4e6323877b82"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object
@@ -414,6 +414,18 @@ app_system_properties:
 .L.env.buf.138:
 	.zero	63
 .L.env.buf.139:
+	.zero	63
+.L.env.buf.140:
+	.zero	63
+.L.env.buf.141:
+	.zero	63
+.L.env.buf.142:
+	.zero	63
+.L.env.buf.143:
+	.zero	63
+.L.env.buf.144:
+	.zero	63
+.L.env.buf.145:
 	.zero	63
 	/* Bundled assemblies data */
 	.section	.data.bundled_assemblies,"aw",@progbits
@@ -2506,4 +2518,94 @@ bundled_assemblies:
 	.zero	4
 	.xword	.L.env.buf.139
 
-	.size	bundled_assemblies, 5560
+	/* apk_fd */
+	.word	-1
+	/* data_offset */
+	.word	0
+	/* data_size */
+	.word	0
+	/* data */
+	.zero	4
+	.xword	0
+	/* name_length */
+	.word	0
+	/* name */
+	.zero	4
+	.xword	.L.env.buf.140
+
+	/* apk_fd */
+	.word	-1
+	/* data_offset */
+	.word	0
+	/* data_size */
+	.word	0
+	/* data */
+	.zero	4
+	.xword	0
+	/* name_length */
+	.word	0
+	/* name */
+	.zero	4
+	.xword	.L.env.buf.141
+
+	/* apk_fd */
+	.word	-1
+	/* data_offset */
+	.word	0
+	/* data_size */
+	.word	0
+	/* data */
+	.zero	4
+	.xword	0
+	/* name_length */
+	.word	0
+	/* name */
+	.zero	4
+	.xword	.L.env.buf.142
+
+	/* apk_fd */
+	.word	-1
+	/* data_offset */
+	.word	0
+	/* data_size */
+	.word	0
+	/* data */
+	.zero	4
+	.xword	0
+	/* name_length */
+	.word	0
+	/* name */
+	.zero	4
+	.xword	.L.env.buf.143
+
+	/* apk_fd */
+	.word	-1
+	/* data_offset */
+	.word	0
+	/* data_size */
+	.word	0
+	/* data */
+	.zero	4
+	.xword	0
+	/* name_length */
+	.word	0
+	/* name */
+	.zero	4
+	.xword	.L.env.buf.144
+
+	/* apk_fd */
+	.word	-1
+	/* data_offset */
+	.word	0
+	/* data_size */
+	.word	0
+	/* data */
+	.zero	4
+	.xword	0
+	/* name_length */
+	.word	0
+	/* name */
+	.zero	4
+	.xword	.L.env.buf.145
+
+	.size	bundled_assemblies, 5800

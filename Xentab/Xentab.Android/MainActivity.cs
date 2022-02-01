@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Acr.UserDialogs;
 
 namespace Xentab.Droid
 {
@@ -18,6 +19,8 @@ namespace Xentab.Droid
             
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Syncfusion.XForms.Android.PopupLayout.SfPopupLayoutRenderer.Init();
+
+            UserDialogs.Init(this);
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

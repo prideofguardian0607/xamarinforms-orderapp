@@ -3,8 +3,11 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "Xentab.Android.dll" comes first in this list. */
 		"Xentab.Android.dll",
+		"Acr.UserDialogs.dll",
+		"AndHUD.dll",
 		"FormsViewGroup.dll",
 		"MagicGradients.dll",
+		"Microsoft.Bcl.AsyncInterfaces.dll",
 		"Newtonsoft.Json.dll",
 		"NuGet.Common.dll",
 		"NuGet.Frameworks.dll",
@@ -38,6 +41,8 @@ public class MonoPackageManager_Resources {
 		"Syncfusion.SfRating.XForms.dll",
 		"Syncfusion.SfTabView.XForms.Android.dll",
 		"Syncfusion.SfTabView.XForms.dll",
+		"System.Text.Encodings.Web.dll",
+		"System.Text.Json.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.Annotation.dll",
 		"Xamarin.AndroidX.Annotation.Experimental.dll",

@@ -37,7 +37,7 @@
     <Color x:Key="Green">#7ed321</Color>
     <Color x:Key="Red">#ff4a4a</Color>
     <Color x:Key="Orange">#ff844a</Color>
-    <Color x:Key="Blue">#4acaff</Color>
+    <Color x:Key="Blue">#0591e8</Color>
     <Color x:Key="HyperLink">#567cd7</Color>
 
     <Color x:Key="Gray-100">#f6f7f8</Color>

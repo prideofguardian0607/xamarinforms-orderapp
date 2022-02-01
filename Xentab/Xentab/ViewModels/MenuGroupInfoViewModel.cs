@@ -15,7 +15,7 @@ namespace Xentab.ViewModels
 		public event PropertyChangedEventHandler PropertyChanged;
 
 
-		private const string groupUrl = "http://10.10.11.18:5000/api/menus/groups";//localhost corresponds 10.0.2.2 in android emulator
+		private string groupUrl = App.baseUrl + "/api/menus/groups";//localhost corresponds 10.0.2.2 in android emulator
 		private readonly HttpClient _client = new HttpClient();
 
 

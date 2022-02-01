@@ -22,6 +22,7 @@ namespace Xentab
         public MenuPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
+            
             //((NavigationPage)Application.Current.page).BarBackgroundColor = Color.YellowGreen;
             //((NavigationPage)this).BarBackgroundColor = Color.White;
             InitializeComponent();

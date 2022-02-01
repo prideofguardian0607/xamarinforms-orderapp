@@ -1,4 +1,5 @@
-﻿using Syncfusion.ListView.XForms;
+﻿using Acr.UserDialogs;
+using Syncfusion.ListView.XForms;
 using Syncfusion.XForms.EffectsView;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xentab.Model;
@@ -18,7 +20,10 @@ namespace Xentab
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuInfoPage : ContentPage
     {
+        private OrderMenuViewModel orderViewModel;
+
         public ICommand ModifyCommand { private set; get; }
+
         public MenuInfoPage(List<MenuInfo> menuInfo, string parentName)
         {
             NavigationPage.SetTitleView(this, new Label()
@@ -28,6 +33,25 @@ namespace Xentab
                 Text = parentName,
             });
             InitializeComponent();
+
+            if(Device.Idiom == TargetIdiom.Tablet)
+            {
+                toolbar.IconImageSource = "string";
+                OrderLayout.HeightRequest = DeviceDisplay.MainDisplayInfo.Height / 2;
+                Console.WriteLine(OrderLayout.HeightRequest);
+                OrderLayout.IsVisible = true;
+                orderViewModel = new OrderMenuViewModel()
+                {
+                    TableName = App.TableName,
+                    Guest = App.Guest,
+                    Order = new ObservableCollection<OrderItem>(App.orderList),
+                    cancelOrderCommand = new Command<OrderItem>((param) => CancelOrder(param))
+                };
+                BindingContext = orderViewModel;
+                CalcTotal();
+            }
+
+
             menuList.LayoutManager = new GridLayout() { SpanCount = Device.Idiom == TargetIdiom.Tablet ? 6 : 3 };
             menuList.ItemsSource = new ObservableCollection<MenuInfo>(menuInfo);
             menuList.ItemTapped += ListView_ItemTapped;
@@ -37,8 +61,14 @@ namespace Xentab
         {
 
             MenuInfo menuInfo = e.ItemData as MenuInfo;
+
+            
+
             if (menuInfo.HasSubItem == true)
+            {
                 await Navigation.PushAsync(new SubMenuPage(menuInfo.SubItems, menuInfo.Name));
+            }
+                
             else
             {
                 OrderItem found = App.orderList.FirstOrDefault(o => o.Id == menuInfo.Id);
@@ -46,6 +76,12 @@ namespace Xentab
 
                 if (menuInfo.ModifierLevels[0].Modifiers.Count == 0)
                 {
+                    ToastConfig.DefaultPosition = ToastPosition.Top;
+                    ToastConfig.DefaultBackgroundColor = Color.FromHex("0591e8");
+                    ToastConfig.DefaultMessageTextColor = Color.White;
+                    ToastConfig.DefaultDuration = new TimeSpan(10000);
+                    UserDialogs.Instance.Toast($"{menuInfo.Name} is selected.");
+
                     if (found != null)
                     {
                         found.Num++;
@@ -63,19 +99,40 @@ namespace Xentab
                 }
                 else
                 {
-
-                    //this.Content = new ModifierPage(menuInfo).Content;
-                    await Navigation.PushAsync(new ModifierPage(menuInfo), true);
+                    await Navigation.PushModalAsync(new ModifierPage(menuInfo), true);
                 }
-
-
             }
-            //Navigation.PushAsync(new OrderPage(menuInfo));
         }
 
         public void OnOrderClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new OrderPage());
+        }
+
+        public void CalcTotal()
+        {
+            double total = 0;
+            foreach (OrderItem item in App.orderList)
+                total += item.Price * item.Num;
+            //totalLabel.Text = "Total: $" + total.ToString();
+            totalButton.Text = "DONE( $" + total.ToString() + " )";
+
+        }
+
+        private void CancelOrder(OrderItem item)
+        {
+            OrderItem found = App.orderList.FirstOrDefault(o => o.Id == item.Id);
+            if (found != null)
+            {
+                if (found.Num > 1)
+                {
+                    found.Num--;
+                }
+                else
+                    App.orderList.Remove(found);
+            }
+            orderViewModel.Order = new ObservableCollection<OrderItem>(App.orderList);
+            CalcTotal();
         }
     }
 

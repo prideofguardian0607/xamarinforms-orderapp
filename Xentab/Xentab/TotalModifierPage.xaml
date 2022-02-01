@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             x:Class="Xentab.TotalModifierPage">
+    <ContentPage.Content>
+        <Grid ColumnDefinitions="*, 3*, 100" Padding="20">
+            <StackLayout Grid.Column="0" x:Name="menuGroupLayout" Padding="20">
+                <syncfusion:SfListView x:Name="modifierGroupList"
+                      ItemsSource="{Binding ModifierGroups}"
+                      ItemSize="60">
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame x:Name="frame" HasShadow="True" Padding="5" Margin="5" BackgroundColor="{x:StaticResource Blue}" BorderColor="Gray" OutlineColor="White">
+                                <StackLayout HorizontalOptions="Center" >
+                                    <Label VerticalOptions="FillAndExpand" 
+                                            VerticalTextAlignment="Center" 
+                                            Text="{Binding Name}" 
+                                            TextColor="White"
+                                            FontSize="20"/>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>
+            </StackLayout>
+            <StackLayout Grid.Column="1" x:Name="modifierLayout">
+                <syncfusion:SfListView x:Name="modifierItemList" ItemsSource="{Binding ModifierItems}" AutoFitMode="Height" SelectionMode="Single" SelectionBackgroundColor="LightGray">
+                    <syncfusion:SfListView.LayoutManager>
+                        <syncfusion:GridLayout SpanCount="6" />
+                    </syncfusion:SfListView.LayoutManager>
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5" Margin="2" >
+                                <StackLayout Orientation="Vertical">
+                                    <cards:SfCardView IndicatorColor="{x:StaticResource Blue}" IndicatorThickness="10" HeightRequest="100" IndicatorPosition="Left" >
+                                        <Label  Text="{Binding Name}" TextColor="{x:StaticResource Blue}" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </cards:SfCardView>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>
+            </StackLayout>
+            <StackLayout Grid.Column="2" VerticalOptions="End">
+                <Button Text="Back" x:Name="back" Clicked="BackOrderPage" HorizontalOptions="FillAndExpand" BackgroundColor="{x:StaticResource Blue}" CornerRadius="3" TextColor="White" FontSize="20"></Button>    
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

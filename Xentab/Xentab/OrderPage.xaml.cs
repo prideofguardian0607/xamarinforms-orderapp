@@ -1,25 +1,10 @@
-﻿using MagicGradients;
-using Newtonsoft.Json;
-using Syncfusion.ListView.XForms;
-using Syncfusion.XForms.BadgeView;
-using Syncfusion.XForms.Buttons;
-using Syncfusion.XForms.Cards;
-using Syncfusion.XForms.Graphics;
-using Syncfusion.XForms.TabView;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xentab.Data;
 using Xentab.Model;
 using Xentab.ViewModels;
 
@@ -28,15 +13,16 @@ namespace Xentab
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OrderPage : ContentPage
     {
-        private OrderViewModel orderViewModel;
+        private OrderMenuViewModel orderViewModel;
         public OrderPage()
         {
             InitializeComponent();
-            orderViewModel = new OrderViewModel() {
+            orderViewModel = new OrderMenuViewModel()
+            {
                 TableName = App.TableName,
-                Guest = App.Guest,
+                Guest = App.Guest,  
                 Order = new ObservableCollection<OrderItem>(App.orderList),
-                cancelCommand = new Command<OrderItem>((param) => CancelOrder(param))
+                cancelOrderCommand = new Command<OrderItem>((param) => CancelOrder(param))
             };
             BindingContext = orderViewModel;
             CalcTotal();
@@ -47,8 +33,14 @@ namespace Xentab
             double total = 0;
             foreach (OrderItem item in App.orderList)
                 total += item.Price * item.Num;
-            totalLabel.Text = "Total: $" + total.ToString();
-            totalButton.Text = "DONE( $" + total.ToString() + " )";
+            NavigationPage.SetTitleView(this, new Label()
+            {
+                TextColor = Color.White,
+                FontSize = 20,
+                Text = "Total: $" + total.ToString()
+            });
+            //totalLabel.Text = "Total: $" + total.ToString();
+            //totalButton.Text = "DONE( $" + total.ToString() + " )";
 
         }
 
@@ -66,6 +58,29 @@ namespace Xentab
             }
             orderViewModel.Order = new ObservableCollection<OrderItem>(App.orderList);
             CalcTotal();
+        }
+
+        private void Cancel(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
+
+        private async void OrderCancel(object sender, EventArgs e)
+        {
+            bool isNo = await DisplayAlert("Notification", "Do you want cancel order?", "No", "Yes");
+            if (!isNo)
+            {
+                App.orderList = new List<OrderItem>();
+                App.TableName = "";
+                App.Guest = 0;
+                await Navigation.PopModalAsync();
+                await Navigation.PushModalAsync(new TablePage(), true);
+            }
+        }
+
+        private void OrderDone(object sender, EventArgs e)
+        {
+            
         }
     }
 }

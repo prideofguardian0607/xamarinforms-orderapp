@@ -2,6 +2,33 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Acr.UserDialogs/7.2.0.562": {
+        "type": "package",
+        "dependencies": {
+          "BTProgressHUD": "1.3.5"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        }
+      },
+      "BTProgressHUD/1.3.5": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        }
+      },
       "MagicGradients/1.3.1": {
         "type": "package",
         "dependencies": {
@@ -16,6 +43,15 @@
         },
         "build": {
           "build/_._": {}
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
       "Newtonsoft.Json/13.0.1": {
@@ -322,7 +358,7 @@
           "lib/Xamarin.iOS10/Syncfusion.SfTabView.XForms.iOS.dll": {}
         }
       },
-      "System.Buffers/4.4.0": {
+      "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Buffers.dll": {}
@@ -331,11 +367,11 @@
           "lib/netstandard2.0/System.Buffers.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Buffers": "4.4.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Buffers": "4.5.1",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -353,13 +389,57 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.Text.Encodings.Web/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.4",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
+        }
+      },
+      "System.Text.Json/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.4",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "System.Text.Encodings.Web": "6.0.0",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Text.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Json.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.4": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
         }
       },
       "Xamarin.Essentials/1.7.0": {
@@ -506,6 +586,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.2.0.562",
           "MagicGradients": "1.3.1",
           "Newtonsoft.Json": "13.0.1",
           "NuGet.Common": "6.0.0",
@@ -518,6 +599,7 @@
           "Syncfusion.Xamarin.SfPopupLayout": "19.4.0.42",
           "Syncfusion.Xamarin.SfRating": "19.4.0.42",
           "Syncfusion.Xamarin.SfTabView": "19.4.0.42",
+          "System.Text.Json": "6.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196",
           "sqlite-net-pcl": "1.8.116"
@@ -531,6 +613,33 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Acr.UserDialogs/7.2.0.562": {
+        "type": "package",
+        "dependencies": {
+          "BTProgressHUD": "1.3.5"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        }
+      },
+      "BTProgressHUD/1.3.5": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        }
+      },
       "MagicGradients/1.3.1": {
         "type": "package",
         "dependencies": {
@@ -545,6 +654,15 @@
         },
         "build": {
           "build/_._": {}
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
       "Newtonsoft.Json/13.0.1": {
@@ -829,7 +947,7 @@
           "lib/Xamarin.iOS10/Syncfusion.SfTabView.XForms.iOS.dll": {}
         }
       },
-      "System.Buffers/4.4.0": {
+      "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Buffers.dll": {}
@@ -838,11 +956,11 @@
           "lib/netstandard2.0/System.Buffers.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Buffers": "4.4.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Buffers": "4.5.1",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -860,13 +978,57 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.Text.Encodings.Web/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.4",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
+        }
+      },
+      "System.Text.Json/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.4",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "System.Text.Encodings.Web": "6.0.0",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Text.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Json.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.4": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
         }
       },
       "Xamarin.Essentials/1.7.0": {
@@ -1013,6 +1175,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.2.0.562",
           "MagicGradients": "1.3.1",
           "Newtonsoft.Json": "13.0.1",
           "NuGet.Common": "6.0.0",
@@ -1025,6 +1188,7 @@
           "Syncfusion.Xamarin.SfPopupLayout": "19.4.0.42",
           "Syncfusion.Xamarin.SfRating": "19.4.0.42",
           "Syncfusion.Xamarin.SfTabView": "19.4.0.42",
+          "System.Text.Json": "6.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196",
           "sqlite-net-pcl": "1.8.116"
@@ -1038,6 +1202,33 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Acr.UserDialogs/7.2.0.562": {
+        "type": "package",
+        "dependencies": {
+          "BTProgressHUD": "1.3.5"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        }
+      },
+      "BTProgressHUD/1.3.5": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        }
+      },
       "MagicGradients/1.3.1": {
         "type": "package",
         "dependencies": {
@@ -1052,6 +1243,15 @@
         },
         "build": {
           "build/_._": {}
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
       "Newtonsoft.Json/13.0.1": {
@@ -1339,7 +1539,7 @@
           "lib/Xamarin.iOS10/Syncfusion.SfTabView.XForms.iOS.dll": {}
         }
       },
-      "System.Buffers/4.4.0": {
+      "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Buffers.dll": {}
@@ -1348,11 +1548,11 @@
           "lib/netstandard2.0/System.Buffers.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Buffers": "4.4.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Buffers": "4.5.1",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -1370,13 +1570,57 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.Text.Encodings.Web/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.4",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
+        }
+      },
+      "System.Text.Json/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.4",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "System.Text.Encodings.Web": "6.0.0",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Text.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Json.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.4": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
         }
       },
       "Xamarin.Essentials/1.7.0": {
@@ -1523,6 +1767,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.2.0.562",
           "MagicGradients": "1.3.1",
           "Newtonsoft.Json": "13.0.1",
           "NuGet.Common": "6.0.0",
@@ -1535,6 +1780,7 @@
           "Syncfusion.Xamarin.SfPopupLayout": "19.4.0.42",
           "Syncfusion.Xamarin.SfRating": "19.4.0.42",
           "Syncfusion.Xamarin.SfTabView": "19.4.0.42",
+          "System.Text.Json": "6.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196",
           "sqlite-net-pcl": "1.8.116"
@@ -1548,6 +1794,33 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Acr.UserDialogs/7.2.0.562": {
+        "type": "package",
+        "dependencies": {
+          "BTProgressHUD": "1.3.5"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        }
+      },
+      "BTProgressHUD/1.3.5": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        }
+      },
       "MagicGradients/1.3.1": {
         "type": "package",
         "dependencies": {
@@ -1562,6 +1835,15 @@
         },
         "build": {
           "build/_._": {}
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
       "Newtonsoft.Json/13.0.1": {
@@ -1849,7 +2131,7 @@
           "lib/Xamarin.iOS10/Syncfusion.SfTabView.XForms.iOS.dll": {}
         }
       },
-      "System.Buffers/4.4.0": {
+      "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Buffers.dll": {}
@@ -1858,11 +2140,11 @@
           "lib/netstandard2.0/System.Buffers.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Buffers": "4.4.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Buffers": "4.5.1",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -1880,13 +2162,57 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.Text.Encodings.Web/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.4",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
+        }
+      },
+      "System.Text.Json/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.4",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "System.Text.Encodings.Web": "6.0.0",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Text.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Json.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.4": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
         }
       },
       "Xamarin.Essentials/1.7.0": {
@@ -2033,6 +2359,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.2.0.562",
           "MagicGradients": "1.3.1",
           "Newtonsoft.Json": "13.0.1",
           "NuGet.Common": "6.0.0",
@@ -2045,6 +2372,7 @@
           "Syncfusion.Xamarin.SfPopupLayout": "19.4.0.42",
           "Syncfusion.Xamarin.SfRating": "19.4.0.42",
           "Syncfusion.Xamarin.SfTabView": "19.4.0.42",
+          "System.Text.Json": "6.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196",
           "sqlite-net-pcl": "1.8.116"
@@ -2059,6 +2387,49 @@
     }
   },
   "libraries": {
+    "Acr.UserDialogs/7.2.0.562": {
+      "sha512": "AOx6gb2pHSjn38Li/4EAZdQYgKTas9kYXoVJxZJONMbWlrDEUynk7TnqdxhN+yZVLAQpKMqEE5Jw4stZb5m/5w==",
+      "type": "package",
+      "path": "acr.userdialogs/7.2.0.562",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "acr.userdialogs.7.2.0.562.nupkg.sha512",
+        "acr.userdialogs.nuspec",
+        "lib/monoandroid10.0/Acr.UserDialogs.dll",
+        "lib/monoandroid10.0/Acr.UserDialogs.xml",
+        "lib/netstandard2.0/Acr.UserDialogs.dll",
+        "lib/netstandard2.0/Acr.UserDialogs.xml",
+        "lib/uap10.0.19041/Acr.UserDialogs.dll",
+        "lib/uap10.0.19041/Acr.UserDialogs.pri",
+        "lib/uap10.0.19041/Acr.UserDialogs.xml",
+        "lib/uap10.0.19041/Acr.UserDialogs/Acr.UserDialogs.xr.xml",
+        "lib/xamarinios10/Acr.UserDialogs.dll",
+        "lib/xamarinios10/Acr.UserDialogs.xml",
+        "lib/xamarinmac20/Acr.UserDialogs.dll",
+        "lib/xamarinmac20/Acr.UserDialogs.xml",
+        "lib/xamarintvos10/Acr.UserDialogs.dll",
+        "lib/xamarintvos10/Acr.UserDialogs.xml",
+        "readme.txt"
+      ]
+    },
+    "BTProgressHUD/1.3.5": {
+      "sha512": "ePARDST+mV/MISU9aLqeWRv7jNM5AGbAbB2ax+x1ctSPcQEAtOyXwjahLkJD1e6YRmuE4k0WiuCpkF44GZlVAw==",
+      "type": "package",
+      "path": "btprogresshud/1.3.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NOTICE",
+        "btprogresshud.1.3.5.nupkg.sha512",
+        "btprogresshud.nuspec",
+        "icon.png",
+        "lib/xamarinios10/BTProgressHUD.dll",
+        "lib/xamarinios10/BTProgressHUD.pdb",
+        "lib/xamarinios10/BTProgressHUD.xml"
+      ]
+    },
     "MagicGradients/1.3.1": {
       "sha512": "zdW8QkgsE9Muiri3NSKt/j2AtoTr4UDCZdwhgs1lOi9s87T8PMek6UKT36QHt7l+5cfSl+nz8LujNDxLfoXMgw==",
       "type": "package",
@@ -2073,6 +2444,27 @@
         "lib/netstandard2.0/MagicGradients.dll",
         "magicgradients.1.3.1.nupkg.sha512",
         "magicgradients.nuspec"
+      ]
+    },
+    "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+      "sha512": "UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg==",
+      "type": "package",
+      "path": "microsoft.bcl.asyncinterfaces/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
+        "microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+        "microsoft.bcl.asyncinterfaces.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "Newtonsoft.Json/13.0.1": {
@@ -2711,47 +3103,55 @@
         "syncfusion_logo.png"
       ]
     },
-    "System.Buffers/4.4.0": {
-      "sha512": "AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
+    "System.Buffers/4.5.1": {
+      "sha512": "Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
       "type": "package",
-      "path": "system.buffers/4.4.0",
+      "path": "system.buffers/4.5.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Buffers.dll",
+        "lib/net461/System.Buffers.xml",
         "lib/netcoreapp2.0/_._",
         "lib/netstandard1.1/System.Buffers.dll",
         "lib/netstandard1.1/System.Buffers.xml",
         "lib/netstandard2.0/System.Buffers.dll",
         "lib/netstandard2.0/System.Buffers.xml",
+        "lib/uap10.0.16299/_._",
+        "ref/net45/System.Buffers.dll",
+        "ref/net45/System.Buffers.xml",
         "ref/netcoreapp2.0/_._",
         "ref/netstandard1.1/System.Buffers.dll",
         "ref/netstandard1.1/System.Buffers.xml",
         "ref/netstandard2.0/System.Buffers.dll",
         "ref/netstandard2.0/System.Buffers.xml",
-        "system.buffers.4.4.0.nupkg.sha512",
+        "ref/uap10.0.16299/_._",
+        "system.buffers.4.5.1.nupkg.sha512",
         "system.buffers.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "System.Memory/4.5.3": {
-      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+    "System.Memory/4.5.4": {
+      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
       "type": "package",
-      "path": "system.memory/4.5.3",
+      "path": "system.memory/4.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
         "lib/netcoreapp2.1/_._",
         "lib/netstandard1.1/System.Memory.dll",
         "lib/netstandard1.1/System.Memory.xml",
         "lib/netstandard2.0/System.Memory.dll",
         "lib/netstandard2.0/System.Memory.xml",
         "ref/netcoreapp2.1/_._",
-        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.4.5.4.nupkg.sha512",
         "system.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -2804,27 +3204,145 @@
         "version.txt"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
-      "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Text.Encodings.Web/6.0.0": {
+      "sha512": "Vg8eB5Tawm1IFqj4TVK1czJX89rhFxJo9ELqc/Eiq0eXy13RK00eubyU6TJE6y+GQXjyV5gSfiewDUZjQgSE0w==",
+      "type": "package",
+      "path": "system.text.encodings.web/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Text.Encodings.Web.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Text.Encodings.Web.dll",
+        "lib/net461/System.Text.Encodings.Web.xml",
+        "lib/net6.0/System.Text.Encodings.Web.dll",
+        "lib/net6.0/System.Text.Encodings.Web.xml",
+        "lib/netcoreapp3.1/System.Text.Encodings.Web.dll",
+        "lib/netcoreapp3.1/System.Text.Encodings.Web.xml",
+        "lib/netstandard2.0/System.Text.Encodings.Web.dll",
+        "lib/netstandard2.0/System.Text.Encodings.Web.xml",
+        "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll",
+        "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.xml",
+        "system.text.encodings.web.6.0.0.nupkg.sha512",
+        "system.text.encodings.web.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Text.Json/6.0.1": {
+      "sha512": "X3cTdM+jna1YyfTUzToW7aVgINFv7R1W4+1+3hua/YCyLjApPoR8fd+2Cep9DbfYjbv+rBx4K6dlmAWEJr9AHg==",
+      "type": "package",
+      "path": "system.text.json/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/roslyn3.11/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn3.11/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn4.0/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "build/System.Text.Json.targets",
+        "buildTransitive/netcoreapp2.0/System.Text.Json.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Text.Json.dll",
+        "lib/net461/System.Text.Json.xml",
+        "lib/net6.0/System.Text.Json.dll",
+        "lib/net6.0/System.Text.Json.xml",
+        "lib/netcoreapp3.1/System.Text.Json.dll",
+        "lib/netcoreapp3.1/System.Text.Json.xml",
+        "lib/netstandard2.0/System.Text.Json.dll",
+        "lib/netstandard2.0/System.Text.Json.xml",
+        "system.text.json.6.0.1.nupkg.sha512",
+        "system.text.json.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Threading.Tasks.Extensions/4.5.4": {
+      "sha512": "zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
+      "type": "package",
+      "path": "system.threading.tasks.extensions/4.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
-        "system.runtime.compilerservices.unsafe.nuspec",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.Threading.Tasks.Extensions.dll",
+        "lib/net461/System.Threading.Tasks.Extensions.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/netcoreapp2.1/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+        "system.threading.tasks.extensions.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -3112,11 +3630,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.iOS\\Xentab.iOS.csproj",
+      "projectUniqueName": "D:\\DG\\xamarin\\project\\Xentab\\Xentab\\Xentab.iOS\\Xentab.iOS.csproj",
       "projectName": "Xentab.iOS",
-      "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.iOS\\Xentab.iOS.csproj",
+      "projectPath": "D:\\DG\\xamarin\\project\\Xentab\\Xentab\\Xentab.iOS\\Xentab.iOS.csproj",
       "packagesPath": "C:\\Users\\GO.ON\\.nuget\\packages\\",
-      "outputPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.iOS\\obj\\",
+      "outputPath": "D:\\DG\\xamarin\\project\\Xentab\\Xentab\\Xentab.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -3138,8 +3656,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj": {
-              "projectPath": "D:\\W_Dir\\hgg\\complete\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab\\Xentab.csproj"
+            "D:\\DG\\xamarin\\project\\Xentab\\Xentab\\Xentab\\Xentab.csproj": {
+              "projectPath": "D:\\DG\\xamarin\\project\\Xentab\\Xentab\\Xentab\\Xentab.csproj"
             }
           }
         }

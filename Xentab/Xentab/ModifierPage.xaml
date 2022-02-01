@@ -3,21 +3,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Name="modifierPage"
              x:Class="Xentab.ModifierPage">
     <ContentPage.Content>
-        <StackLayout x:Name="modifyLayout" Margin="5">
-            <Label x:Name="warnLevel" Text="" IsVisible="false" HorizontalOptions="Center" TextColor="Red"></Label>
-            <syncfusion:SfListView x:Name="modifierList" 
+        <StackLayout Padding="10" Orientation="Vertical"  >
+
+            <StackLayout x:Name="modifyLayout" Margin="5">
+                <Label x:Name="warnLevel" Text="" HorizontalOptions="Center" TextColor="Red"></Label>
+                <syncfusion:SfListView x:Name="modifierList" 
                                      ItemSize="50">
-                <syncfusion:SfListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Horizontal">
-                            <buttons:SfCheckBox StateChanged="ModifierChanged" VerticalOptions="End" x:Name="checkBox" Text="{Binding name}"  CornerRadius="5.0"/>
-                        </StackLayout>
-                    </DataTemplate>
-                </syncfusion:SfListView.ItemTemplate>
-            </syncfusion:SfListView>
-            <Button x:Name="modifyButton" Text="DONE" BackgroundColor="{x:StaticResource Blue}" TextColor="White" FontSize="Large" FontAttributes="Bold" IsEnabled="True" Clicked="ModifyDone" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="*, 3*">
+                                <buttons:SfSwitch Grid.Column="0" StateChanged="ModifierChanged" VisualType="Cupertino">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup  x:Name="CommonStates">
+                                            <VisualState x:Name="On">
+                                                <VisualState.Setters>
+                                                    <Setter Property="SwitchSettings">
+                                                        <Setter.Value>
+                                                            <buttons:DefaultSwitchSettings x:TypeArguments="buttons:OnState" 
+                                                                 ThumbBorderColor="White" ThumbColor="{x:StaticResource Blue}" 
+                                                                 TrackBorderColor="{x:StaticResource Blue}" TrackColor="{x:StaticResource Blue}" 
+                                                                 BusyIndicatorColor="Coral" />  
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </VisualState.Setters>
+                                            </VisualState>
+
+                                            <VisualState x:Name="Off">
+                                                <VisualState.Setters>
+                                                    <Setter Property="SwitchSettings">
+                                                        <Setter.Value>
+                                                            <buttons:DefaultSwitchSettings x:TypeArguments="buttons:OffState" 
+                                                                ThumbBorderColor="White" ThumbColor="{x:StaticResource Blue}" 
+                                                                TrackBorderColor="{x:StaticResource Blue}" TrackColor="Gray"/> 
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </buttons:SfSwitch>
+                                <Label VerticalOptions="Center" Text="{Binding name}" Grid.Column="1" FontSize="Default" />
+                            </Grid>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>
+                <Button x:Name="modifyButton" Text="DONE" BackgroundColor="{x:StaticResource Blue}" TextColor="White" FontSize="Large" FontAttributes="Bold" IsEnabled="True" Clicked="ModifyDone" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

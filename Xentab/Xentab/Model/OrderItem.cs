@@ -36,20 +36,6 @@ namespace Xentab.Model
 				SetProperty(ref price, value);
 			}
 		}
-
-
-
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected virtual void OnPropertyChanged(string propertyName)
-		{
-			var changed = PropertyChanged;
-			if (changed != null)
-			{
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
 	}
 
 

@@ -1,11 +1,12 @@
-﻿using Syncfusion.XForms.Buttons;
+﻿using Acr.UserDialogs;
+using Syncfusion.XForms.Buttons;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xentab.Model;
@@ -19,9 +20,11 @@ namespace Xentab
         private int count;
         private int modifierCnt;
         MenuInfo menuInfo;
+        private OrderMenuViewModel orderViewModel;
         public ModifierPage(MenuInfo info)
         {
             InitializeComponent();
+
             menuInfo = info;
             modifierList.ItemsSource = new ObservableCollection<Modifier>(info.ModifierLevels[0].Modifiers);
             modifierCnt = count = info.ModifierLevels[0].MaxAllowed;
@@ -30,9 +33,6 @@ namespace Xentab
         }
         private async void ModifyDone(object sender, EventArgs e)
         {
-            //Navigation.PopAsync();
-            await Navigation.PopModalAsync();
-            Console.WriteLine(Navigation.ToString());
             OrderItem found = App.orderList.FirstOrDefault(o => o.Id == menuInfo.Id);
             if (found != null)
             {
@@ -48,12 +48,17 @@ namespace Xentab
                     Price = menuInfo.Price,
                 });
             }
+            ToastConfig.DefaultPosition = ToastPosition.Top;
+            ToastConfig.DefaultBackgroundColor = Color.FromHex("0591e8");
+            ToastConfig.DefaultMessageTextColor = Color.White;
+            UserDialogs.Instance.Toast($"{menuInfo.Name} is selected.");
+            await Navigation.PopModalAsync();
         }
 
-        private void ModifierChanged(object sender, StateChangedEventArgs e)
+        private void ModifierChanged(object sender, SwitchStateChangedEventArgs e)
         {
             Console.WriteLine("changed");
-            if (e.IsChecked.HasValue && e.IsChecked.Value)
+            if ((bool)e.NewValue)
             {
                 modifierCnt++;
             }
@@ -63,16 +68,16 @@ namespace Xentab
             }
             if (count < modifierCnt)
             {
-                warnLevel.IsVisible = true;
                 warnLevel.Text = "Cannot add more than " + count + " times";
                 modifyButton.IsEnabled = false;
             }
             else
             {
                 modifyButton.IsEnabled = true;
-                warnLevel.IsVisible = false;
+                warnLevel.Text = "";
             }
         }
+        
     }
 
 }

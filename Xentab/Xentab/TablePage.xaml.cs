@@ -7,8 +7,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -23,12 +21,16 @@ namespace Xentab
         private readonly HttpClient _client = new HttpClient();
         private string GroupUrl = App.baseUrl + "/api/tables/groups";
         private string TableUrl = App.baseUrl + "/api/tables";
-        private string guest = "    0";
-
+        public LabelViewModel labelViewModel;
         public TablePage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            labelViewModel = new LabelViewModel()
+            {
+                Guest = "0"
+            };
+            BindingContext = labelViewModel;
         }
 
         protected override void OnAppearing()
@@ -72,8 +74,8 @@ namespace Xentab
                             TitleFontSize = 20,
                             TitleFontAttributes = FontAttributes.Bold,
                             Content = listView,
-                            TitleFontColor = Color.FromRgb(0x4a, 0xca, 0xff),
-                            SelectionColor = Color.FromRgb(0x4a, 0xca, 0xff),
+                            TitleFontColor = Color.FromHex("0591e8"),
+                            SelectionColor = Color.FromHex("0591e8"),
                             
                         });
                 }
@@ -88,6 +90,7 @@ namespace Xentab
                 tabView.SelectionIndicatorSettings = selectionIndicatorSettings;
                 tabView.TabHeaderPosition = TabHeaderPosition.Bottom;
                 tabView.Items = tabItems;
+                tabLayout.Children.Clear();
                 tabLayout.Children.Add(tabView);
             }
             catch (Exception e)
@@ -135,7 +138,7 @@ namespace Xentab
                     IndicatorThickness = 10,
                     HeightRequest = 300,
                     //IndicatorPosition = IndicatorPosition.Left,
-                    IndicatorColor = Color.FromRgb(0x4a, 0xca, 0xff),
+                    IndicatorColor = Color.FromHex("0591e8"),
                     //CornerRadius = new Thickness(30, 30, 30, 30),
                 };
                 Label table = new Label()
@@ -144,7 +147,7 @@ namespace Xentab
                     VerticalTextAlignment = TextAlignment.Center,
                     FontSize = 20,
                     FontAttributes = FontAttributes.Bold,
-                    TextColor = Color.FromRgb(0x4a, 0xca, 0xff)
+                    TextColor = Color.FromHex("0591e8")
                 };
                 table.SetBinding(Label.TextProperty, "Name");
                 cardView.Content = table;
@@ -181,30 +184,32 @@ namespace Xentab
         private void NumClicked(object sender, EventArgs e)
         {
             Button selected = sender as Button;
-            if (guest.Equals("    0"))
-                guest = "    " + selected.Text;
+            if (labelViewModel.Guest.Equals("0"))
+                labelViewModel.Guest = selected.Text;
             else
-                guest += selected.Text;
-            numberBoard.PopupView.HeaderTitle = guest;
+                labelViewModel.Guest += selected.Text;
+            //var stack = numberBoard.PopupView.ContentTemplate.CreateContent();
+            //(stack as StackLayout).FindByName<Label>("Number").Text = Guest;
         }
         private void CancelClicked(object sender, EventArgs e)
         {
-            if (!guest.Equals("    0"))
+            if (!labelViewModel.Guest.Equals("0"))
             {
-                if (guest.Length > 5)
-                    guest = guest.Substring(0, guest.Length - 1);
+                if (labelViewModel.Guest.Length > 1)
+                    labelViewModel.Guest = labelViewModel.Guest.Substring(0, labelViewModel.Guest.Length - 1);
                 else
-                    guest = "    0";
-                numberBoard.PopupView.HeaderTitle = guest;
+                    labelViewModel.Guest = "0";
             }
         }
 
         private void OkClicked(object sender, EventArgs e)
         {
-            App.Guest = Int32.Parse(guest);
+            App.Guest = Int32.Parse(labelViewModel.Guest);
             App.orderList = new List<Model.OrderItem>();
-            guest = "    0";
-            _ = Navigation.PushModalAsync(new MenuPage(), true);
+            if(Device.Idiom == TargetIdiom.Tablet)
+                _ = Navigation.PushModalAsync(new TotalPage(), true);
+            else
+                _ = Navigation.PushModalAsync(new MenuPage(), true);
             
         }
 
